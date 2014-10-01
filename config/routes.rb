@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+
   resources :locations
 
   # The priority is based upon order of creation: first created -> highest priority.
