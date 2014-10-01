@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001130609) do
+ActiveRecord::Schema.define(version: 20141001170704) do
+
+  create_table "instagram_arts", force: true do |t|
+    t.text     "everything"
+    t.string   "image_url"
+    t.integer  "date_found"
+    t.text     "tags"
+    t.text     "caption"
+    t.string   "user_name"
+    t.string   "user_id"
+    t.string   "user_avatar"
+    t.string   "location_name"
+    t.float    "location_lon"
+    t.float    "location_lat"
+    t.string   "location_id"
+    t.string   "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "locations", force: true do |t|
     t.string   "address"
