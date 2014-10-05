@@ -1,4 +1,4 @@
-class InstagramArtsController < InheritedResources::Base
+class InstagramArtsController < ApplicationController
   before_action :set_instagramt_art, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /arts
