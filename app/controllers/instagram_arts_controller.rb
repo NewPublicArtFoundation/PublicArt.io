@@ -4,7 +4,11 @@ class InstagramArtsController < ApplicationController
   # GET /arts
   # GET /arts.json
   def index
-    @instagram_arts = InstagramArt.limit(20).all.reverse
+    if params[:search].present?
+      @instagram_arts = InstagramArt.near(params[:search], 50, :order => :distance)
+    else
+      @instagram_arts = InstagramArt.all
+    end
   end
 
   # GET /arts/1
