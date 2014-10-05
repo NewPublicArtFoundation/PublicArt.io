@@ -1,0 +1,116 @@
+<%
+set_meta_tags :twitter => {
+  :card  => "photo",
+  :image => {
+    :_      => "#{@instagram_arts.image_url}",
+    :width  => 600,
+    :height => 600,
+  }
+}
+%>
+
+<%
+set_meta_tags :og => {
+  :title    => @instagram_arts.user_name,
+  :type     => 'article',
+  :url      => 'http://www.publicartfound/a/' + @instagram_arts.id.to_s,
+  :image    => @instagram_arts.image_url,
+  :article    => {
+    :section => 'graffiti',
+    :tag   => @instagram_arts.tags
+  }
+}
+%>
+
+<div class="row h10"></div>
+<div class="large-7 editable-content column large-centered">
+  <div class="row">
+    <div class="large-12 column text-center">
+      <%= image_tag @instagram_arts.image_url, alt: @instagram_arts.tags %>
+    </div>
+  </div>
+  <div class="row h10"></div>
+  <div class="page-button-wrap">
+    <%= link_to "<", instagram_art_path(:id => @instagram_arts.id-1), {:class => 'tiny secondary button round'} %>
+    <%= link_to ">", instagram_art_path(:id => @instagram_arts.id+1), {:class => 'tiny secondary button round button-right'} %>
+  </div>
+  <div class="row h10"></div>
+  <% if @instagram_arts.location_lat != nil %>
+    <div class="row">
+      <div class="large-8 column">
+        <div id="map-small"></div>
+      </div>
+      <div class="large-4 column">
+        <p>
+          <strong>Location name:</strong>
+          <%= @instagram_arts.location_name %>
+        </p>
+        <p>
+          <strong>Lat: </strong><%= @instagram_arts.location_lat %><br>
+          <strong>Lon: </strong><%= @instagram_arts.location_lon %>
+        </p>
+        <p>
+          <%= @instagram_arts.tags %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+  <div class="row h10"></div>
+  <div class="row">
+    <%= image_tag @instagram_arts.user_avatar %>
+    <h1 class="inline-block">
+      <%= @instagram_arts.user_name %>
+    </h1>
+  </div>
+  <div class="row">
+    <div class="large-12 column">
+      <h3><%= @instagram_arts.caption %></h3>
+    </div>
+  </div>
+</div>
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.js'></script>
+<style>
+  #map-small{
+    height: 425px;
+  }
+</style>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.css' rel='stylesheet' />
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoibGtiZ2lmdCIsImEiOiJyTERaTml3In0.y2wd_Fi58ux53Wm1Ur1qCg';
+var map = L.mapbox.map('map-small', 'examples.map-20v6611k', {
+  zoomControl: false
+})
+    .setView([<%= @instagram_arts.location_lat %>,<%= @instagram_arts.location_lon %>], 12);
+
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+
+L.mapbox.featureLayer({
+    // this feature is in the GeoJSON format: see geojson.org
+    // for the full specification
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        // coordinates here are in longitude, latitude order because
+        // x, y is the standard for GeoJSON and many formats
+        coordinates: [
+          <%= @instagram_arts.location_lon %>,
+          <%= @instagram_arts.location_lat %>
+        ]
+    },
+    properties: {
+        title: "<%= @instagram_arts.user_name %>'s photo",
+        description: '<%= @instagram_arts.location_name %>',
+        // one can customize markers by adding simplestyle properties
+        // https://www.mapbox.com/foundations/an-open-platform/#simplestyle
+        'marker-size': 'large',
+        'marker-color': '#BE9A6B',
+        "iconUrl": "<%= @instagram_arts.user_avatar %>",
+        "iconSize": [50, 50]
+    }
+}).addTo(map);
+</script>
+<div class="clearfix"></div>

@@ -1,0 +1,23 @@
+<%= simple_form_for(@instagram_art) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :everything %>
+    <%= f.input :image_url %>
+    <%= f.input :date_found %>
+    <%= f.input :tags %>
+    <%= f.input :caption %>
+    <%= f.input :user_name %>
+    <%= f.input :user_id %>
+    <%= f.input :user_avatar %>
+    <%= f.input :location_name %>
+    <%= f.input :location_lon %>
+    <%= f.input :location_lat %>
+    <%= f.input :location_id %>
+    <%= f.input :image_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
