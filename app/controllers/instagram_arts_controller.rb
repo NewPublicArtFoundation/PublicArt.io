@@ -76,7 +76,7 @@ class InstagramArtsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instagramt_art_params
-      params.require(:instagramt_arts).permit(:everything, :image_url, :date_found, :tags, :caption, :user_name, :user_id, :user_avatar, :location_name, :location_lon, :location_lat, :location_id, :image_id, :created_at, :updated_at)
+      params.require(:instagramt_arts).permit(:everything, :image_url, :date_found, :tags, :caption, :user_name, :user_id, :user_avatar, :location_name, :longitude, :latitude, :location_id, :image_id, :created_at, :updated_at)
     end
 
 end

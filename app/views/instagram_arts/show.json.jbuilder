@@ -1,1 +1,1 @@
-json.extract! @instagram_art, :id, :everything, :image_url, :date_found, :tags, :caption, :user_name, :user_id, :user_avatar, :location_name, :location_lon, :location_lat, :location_id, :image_id, :created_at, :updated_at
+json.extract! @instagram_art, :id, :everything, :image_url, :date_found, :tags, :caption, :user_name, :user_id, :user_avatar, :location_name, :longitude, :latitude, :location_id, :image_id, :created_at, :updated_at

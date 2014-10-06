@@ -1,5 +1,5 @@
 <% if(@instagram_arts.location_lat != nil) %>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@instagram_arts.location_lat}%2C#{@instagram_arts.location_lon}" %>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@instagram_arts.location_lat}%2C#{@instagram_arts.longitude}" %>
 
   <h3>Nearby locations</h3>
   <ul>
@@ -22,7 +22,7 @@
     <%= link_to ">", instagram_art_path(:id => @instagram_arts.id+1), {:class => 'tiny secondary button round button-right'} %>
   </div>
   <div class="row h10"></div>
-  <% if @instagram_arts.location_lat != nil %>
+  <% if @instagram_arts.latitude != nil %>
     <div class="row">
       <div class="large-8 column">
         <div id="map-small"></div>
@@ -33,8 +33,8 @@
           <%= @instagram_arts.location_name %>
         </p>
         <p>
-          <strong>Lat: </strong><%= @instagram_arts.location_lat %><br>
-          <strong>Lon: </strong><%= @instagram_arts.location_lon %>
+          <strong>Lat: </strong><%= @instagram_arts.latitude %><br>
+          <strong>Lon: </strong><%= @instagram_arts.longitude %>
         </p>
         <p>
           <%= @instagram_arts.tags %>
