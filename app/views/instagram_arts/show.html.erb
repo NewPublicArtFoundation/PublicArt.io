@@ -1,5 +1,5 @@
-<% if(@instagram_arts.latitude != nil) %>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@instagram_arts.latitude}%2C#{@instagram_arts.longitude}" %>
+<% if(@instagram_arts.location_lat != nil) %>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@instagram_arts.location_lat}%2C#{@instagram_arts.location_lon}" %>
 
   <h3>Nearby locations</h3>
   <ul>
