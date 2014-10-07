@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'place' => 'instagram_arts#indexlocation'
-  resources :locations
+  get 'find' => 'instagram_arts#indexlocation'
+  
   resources :instagram_arts
 
   # The priority is based upon order of creation: first created -> highest priority.
