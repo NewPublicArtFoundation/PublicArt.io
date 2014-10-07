@@ -17,7 +17,13 @@
       </tr>
     </thead>
     <tbody>
+      <% @instagram_arts.each do |instagram_art| %>
+       
+            <%= link_to instagram_art, instagram_art.image_url do %>
+              <%= instagram_art.image_url %>
+            <% end %>
 
+      <% end %>
     </tbody>
   </table>
 <% end %>
