@@ -25,13 +25,12 @@
       <% #distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
       <tr>
         <td>
-        <%= link_to instagram_art, instagram_art.image_url do %>
-          <%= instagram_art.image_url %>
-        <% end %>
+        <%= #link_to instagram_art, instagram_art.image_url do %>
+          <%= #instagram_art.image_url %>
+        <% #end %>
         </td>
         <td><%= instagram_art.tags %></td>
         <td><%= #distance_apart %> mi</td>
-
       </tr>
     <% end %>
   </tbody>
