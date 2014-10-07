@@ -1,14 +1,3 @@
-<% if(@instagram_arts.latitude != nil) %>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@instagram_arts.latitude}%2C#{@instagram_arts.longitude}" %>
-
-  <h3>Nearby locations (<%= @instagram_arts.nearbys.count(:all) %>)</h3>
-  <ul>
-  <% for instagram_arts in @instagram_arts.nearbys(10) %>
-    <li><%= link_to instagram_arts.address, instagram_arts %> (<%= instagram_arts.distance.round(2) %> miles)</li>
-  <% end %>
-  </ul>
-<% end %>
-
 <div class="row h10"></div>
 <div class="large-7 editable-content column large-centered">
   <div class="row">
@@ -55,3 +44,14 @@
     </div>
   </div>
 </div>
+
+<% if(@instagram_arts.latitude != nil) %>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@instagram_arts.latitude}%2C#{@instagram_arts.longitude}" %>
+
+  <h3>Nearby locations (<%= @instagram_arts.nearbys.count(:all) %>)</h3>
+  <ul>
+  <% for instagram_arts in @instagram_arts.nearbys(10) %>
+    <li><%= link_to instagram_arts.address, instagram_arts %> (<%= instagram_arts.distance.round(2) %> miles)</li>
+  <% end %>
+  </ul>
+<% end %>
