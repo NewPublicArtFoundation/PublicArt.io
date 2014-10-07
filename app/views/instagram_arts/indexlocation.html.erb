@@ -12,7 +12,7 @@
       <th>Date found</th>
       <th>Tags</th>
       <th>Distance</th>
-      <th colspan="3"></th>
+
     </tr>
   </thead>
 
@@ -22,15 +22,10 @@
         <td><%= instagram_art.image_url %></td>
         <td><%= instagram_art.date_found %></td>
         <td><%= instagram_art.tags %></td>
-        <td><%= instagram_art.distance_to(”Eiffel Tower”) %></td>
-        <td><%= link_to 'Show', instagram_art %></td>
-        <td><%= link_to 'Edit', edit_instagram_art_path(instagram_art) %></td>
-        <td><%= link_to 'Destroy', instagram_art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= instagram_art.distance_to( params[:search] ) %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Instagram art', new_instagram_art_path %>
