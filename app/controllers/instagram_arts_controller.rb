@@ -13,7 +13,7 @@ class InstagramArtsController < ApplicationController
     if params[:search].present?
       @instagram_arts = InstagramArt.near(params[:search], 50, :order => :distance)
     else
-      @instagram_arts = InstagramArt.paginate(:page => params[:page], :per_page => 30)
+      # @instagram_arts = InstagramArt.paginate(:page => params[:page], :per_page => 30)
     end
   end
 
