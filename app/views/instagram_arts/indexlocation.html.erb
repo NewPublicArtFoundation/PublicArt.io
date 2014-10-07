@@ -24,9 +24,9 @@
       <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
       <tr>
         <td>
-        <%= link_to instagram_art, instagram_art.image_url do %>
-          <%= instagram_art.image_url %>
-        <% end %>
+        <%= #link_to instagram_art, instagram_art.image_url do %>
+          <%= #instagram_art.image_url %>
+        <% #end %>
         </td>
         <td><%= instagram_art.tags %></td>
         <td><%= Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates).round(2) %> mi</td>
