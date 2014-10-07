@@ -22,7 +22,7 @@
   <tbody>
     <% @instagram_arts.each do |instagram_art| %>
       <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
-      <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
+      <% #distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
       <tr>
         <td>
         <%= link_to instagram_art, instagram_art.image_url do %>
@@ -30,7 +30,7 @@
         <% end %>
         </td>
         <td><%= instagram_art.tags %></td>
-        <td><%= distance_apart %> mi</td>
+        <td><%= #distance_apart %> mi</td>
 
       </tr>
     <% end %>
