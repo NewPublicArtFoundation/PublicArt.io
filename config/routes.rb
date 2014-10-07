@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   get 'find' => 'instagram_arts#indexlocation'
   
-  concern :paginatable do
-    get '(page/:page)', :action => :index, :on => :collection, :as => ''
-  end
+  # concern :paginatable do
+  #   get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  # end
   
-  resources :instagram_arts, :concerns => :paginatable
+  # resources :instagram_arts, :concerns => :paginatable
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
