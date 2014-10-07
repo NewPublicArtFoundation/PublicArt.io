@@ -50,7 +50,7 @@
 
   <h3>Nearby locations (<%= @instagram_arts.nearbys.count(:all) %>)</h3>
   <ul>
-  <% for instagram_arts in @instagram_arts.nearbys(10) %>
+  <% for instagram_arts in @instagram_arts.nearbys(10).limit(10) %>
     <li><%= link_to instagram_arts.address, instagram_arts %> (<%= instagram_arts.distance.round(2) %> miles)</li>
   <% end %>
   </ul>
