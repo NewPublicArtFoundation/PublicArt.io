@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'location_search' => 'instagram_arts#indexlocation'
+  get 'place' => 'instagram_arts#indexlocation'
   resources :locations
   resources :instagram_arts
 
