@@ -4,14 +4,14 @@ class InstagramArtsController < ApplicationController
   # GET /arts
   # GET /arts.json
   def index
-    @instagram_arts = InstagramArt.paginate(:page => params[:page], :per_page => 30)
+    @instagram_arts = InstagramArt
   end
 
   # GET /arts
   # GET /arts.json
   def indexlocation
     if params[:search].present?
-      @instagram_arts = InstagramArt.near(params[:search], 10).paginate(:page => params[:page], :per_page => 20)
+      @instagram_arts = InstagramArt.near(params[:search], 10)
       @result_coordinates = Geocoder.coordinates(params[:search])
     else
       # @instagram_arts = InstagramArt.paginate(:page => params[:page], :per_page => 30)
