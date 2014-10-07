@@ -7,32 +7,17 @@
 
 
 <% if @instagram_arts != nil %>
-
-<h3>Results for <%= params[:search] %>(<%= @instagram_arts.count(:all) %>)</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image url</th>
-      <th>Tags</th>
-      <th>Distance</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <% @instagram_arts.each do |instagram_art| %>
-      <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
-      <% #distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
+  <h3>Results for <%= params[:search] %>(<%= @instagram_arts.count(:all) %>)</h3>
+  <table>
+    <thead>
       <tr>
-        <td>
-        <%= #link_to instagram_art, instagram_art.image_url do %>
-          <%= #instagram_art.image_url %>
-        <% #end %>
-        </td>
-        <td><%= instagram_art.tags %></td>
-        <td><%= #distance_apart %> mi</td>
+        <th>Image url</th>
+        <th>Tags</th>
+        <th>Distance</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
 <% end %>
