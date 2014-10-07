@@ -15,14 +15,13 @@
 
     </tr>
   </thead>
-
   <tbody>
     <% @instagram_arts.each do |instagram_art| %>
       <tr>
         <td><%= instagram_art.image_url %></td>
         <td><%= instagram_art.date_found %></td>
         <td><%= instagram_art.tags %></td>
-        <td><%= Geocoder::Calculations.distance_between([instagram_art.latitude, instagram_art.longitude], params[:search], options = {:units => :mi}) %></td>
+        <td><%= Geocoder::Calculations.distance_between([instagram_art.latitude, instagram_art.longitude], @result_coordinates, options = {:units => :mi}) %></td>
 
       </tr>
     <% end %>
