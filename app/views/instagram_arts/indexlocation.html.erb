@@ -5,25 +5,30 @@
   </p>
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image url</th>
-      <th>Date found</th>
-      <th>Tags</th>
+<% if @instagram_arts != nil %>
 
-    </tr>
-  </thead>
+  <h4>Results for <%= params[:search] %> (<%= @instagram_arts.count %>)</h4>
 
-  <tbody>
-    <% @instagram_arts.each do |instagram_art| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= instagram_art.image_url %></td>
-        <td><%= instagram_art.date_found %></td>
-        <td><%= instagram_art.tags %></td>
+        <th>Image url</th>
+        <th>Date found</th>
+        <th>Tags</th>
 
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @instagram_arts.each do |instagram_art| %>
+        <tr>
+          <td><%= instagram_art.image_url %></td>
+          <td><%= instagram_art.date_found %></td>
+          <td><%= instagram_art.tags %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
