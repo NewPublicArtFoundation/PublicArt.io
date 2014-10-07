@@ -8,7 +8,7 @@
 
 <% if @instagram_arts != nil %>
 
-  <h3>Results for <%= params[:search] %>(<%= @instagram_arts.count(:all) %>)</h3>
+  <h3>Results for <%= params[:search] %>(<%= @result_count %> within 10 miles)</h3>
 
   <%= paginate @instagram_arts %>
 
