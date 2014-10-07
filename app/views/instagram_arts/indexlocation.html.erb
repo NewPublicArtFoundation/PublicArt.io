@@ -13,16 +13,22 @@
       <tr>
         <th>Image url</th>
         <th>Tags</th>
-        <th>Distance</th>
+
       </tr>
     </thead>
     <tbody>
       <% @instagram_arts.each do |instagram_art| %>
-       
+        <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
+
+        <tr>
+          <td>
             <%= link_to instagram_art, instagram_art.image_url do %>
               <%= instagram_art.image_url %>
             <% end %>
+          </td>
+          <td><%= instagram_art.tags %></td>
 
+        </tr>
       <% end %>
     </tbody>
   </table>
