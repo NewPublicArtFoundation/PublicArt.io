@@ -11,7 +11,6 @@
   <thead>
     <tr>
       <th>Image url</th>
-      <th>Date found</th>
       <th>Tags</th>
       <th>Distance</th>
 
@@ -26,7 +25,6 @@
           <%= instagram_art.image_url %>
         <% end %>
         </td>
-        <td><%= instagram_art.date_found %></td>
         <td><%= instagram_art.tags %></td>
         <td><%= Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates).round(2) %> mi</td>
 
