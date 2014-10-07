@@ -11,7 +11,7 @@
       <th>Image url</th>
       <th>Date found</th>
       <th>Tags</th>
-      <th>Lat/Lon</th>
+      <th>Distance</th>
 
     </tr>
   </thead>
@@ -22,7 +22,7 @@
         <td><%= instagram_art.image_url %></td>
         <td><%= instagram_art.date_found %></td>
         <td><%= instagram_art.tags %></td>
-        <td><%= instagram_art.latitude %>, <%= instagram_art.longitude %></td>
+        <td><%= Geocoder::Calculations.distance_between([instagram_art.latitude, instagram_art.longitude], params[:search], options = {:units => :mi}) %></td>
 
       </tr>
     <% end %>

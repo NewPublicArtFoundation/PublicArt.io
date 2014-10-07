@@ -15,6 +15,7 @@ class InstagramArtsController < ApplicationController
     else
       # @instagram_arts = InstagramArt.paginate(:page => params[:page], :per_page => 30)
     end
+
   end
 
   # GET /arts/1
