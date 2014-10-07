@@ -11,6 +11,9 @@
       <th>Image url</th>
       <th>Date found</th>
       <th>Tags</th>
+      <th>Distance</th>
+      <th>Bearing</th>
+
     </tr>
   </thead>
 
@@ -20,6 +23,9 @@
         <td><%= instagram_art.image_url %></td>
         <td><%= instagram_art.date_found %></td>
         <td><%= instagram_art.tags %></td>
+        <td><%= instagram_art.distance.round(2)  %></td>
+        <td><%= instagram_art.bearing( params[:search] ) %></td>
+
       </tr>
     <% end %>
   </tbody>

@@ -11,7 +11,7 @@ class InstagramArtsController < ApplicationController
   # GET /arts.json
   def indexlocation
     if params[:search].present?
-      @instagram_arts = InstagramArt.near(params[:search], 50, :order => :distance)
+      @instagram_arts = InstagramArt.near(params[:search], 50)
     else
       # @instagram_arts = InstagramArt.paginate(:page => params[:page], :per_page => 30)
     end
