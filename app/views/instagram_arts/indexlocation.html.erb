@@ -7,6 +7,9 @@
 
 
 <% if @instagram_arts != nil %>
+
+<h3>Results for <%= params[:search] %>(<%= @instagram_arts.count(:all) %>)</h3>
+
 <table>
   <thead>
     <tr>
@@ -21,7 +24,7 @@
       <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
       <tr>
         <td>
-        <% link_to instagram_art, instagram_art.image_url do %>
+        <%= link_to instagram_art, instagram_art.image_url do %>
           <%= instagram_art.image_url %>
         <% end %>
         </td>
