@@ -40,7 +40,7 @@
   <%   page_range_low = 1 %> 
   <% end %>
   <div class="row">
-    <h3>Results for <b><%= params[:search].truncate(120, separator: ' ') %></b></h3>
+    <h3 class="overflow-y">Results for <b><%= params[:search] %></b></h3>
   </div>
   <div class="row">
     <h4 class="left"><%= @result_count %> pieces within 10 miles</h4>
