@@ -2,6 +2,7 @@
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search Near", :name => nil %>
+    <button class="GP_get_location"></button>
   </p>
 <% end %>
 
@@ -34,7 +35,7 @@
       <% end %>
     </tbody>
   </table>
-  
+
   <%= paginate @instagram_arts %>
 
 <% end %>
