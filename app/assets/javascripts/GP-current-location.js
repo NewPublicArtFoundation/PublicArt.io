@@ -18,6 +18,7 @@ GP.fail = function(){
     // Could not obtain location
 }
 
-$('.GP_get_location').on('click', function(){
+$('.GP_get_location').on('click', function(e){
+    e.preventDefault();
     initGeolocation();
 });

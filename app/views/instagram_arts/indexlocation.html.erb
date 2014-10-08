@@ -1,8 +1,8 @@
 <%= form_tag find_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
+    <a href="#" class="GP_get_location">Get Current Location</a>
     <%= submit_tag "Search Near", :name => nil %>
-    <button class="GP_get_location"></button>
   </p>
 <% end %>
 
