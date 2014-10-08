@@ -21,7 +21,7 @@
         <li class="has-form">
           <div class="row collapse">
             <div class="large-8 small-9 columns">
-              <%= text_field_tag :search, params[:search] %>
+              <%= text_field_tag :search, params[:search], placeholder: 'Enter location here' %>
             </div>
             <div class="large-4 small-3 columns">
               <%= submit_tag "Search", :name => nil, :class => 'alert button expand' %>
