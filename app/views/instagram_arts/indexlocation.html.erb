@@ -18,7 +18,7 @@
   <% @instagram_arts.each do |instagram_art| %>
     <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
     <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
-    <div class="row">
+    <div class="row" >
       <div class="large-3 column medium-4 small-5">
         <%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>
       </div>
