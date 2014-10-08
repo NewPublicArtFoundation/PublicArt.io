@@ -45,25 +45,24 @@
   <div class="row">
     <h4 class="left"><%= @result_count %> pieces within 10 miles</h4>
     <p class="right">Showing <%= page_range_low %>-<%= page_range_low + 25 %></p>
-    
   </div>
 
+  <% @instagram_arts.each do |instagram_art| %>
+    <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
+    <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
+    <div class="row">
+      <div class="large-3 column medium-4 small-5">
+        <%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>
+      </div>
+      <div class="large-4 column medium-4 hide-for-small">
+        <%= instagram_art.tags.truncate(120, separator: ' ') %>
+      </div>
+      <div class="large-5 medium-4 small-7 column text-right">
+        <%= distance_apart.round(2) %> mi
+      </div>
+    </div>
+  <% end %>
 
-      <% @instagram_arts.each do |instagram_art| %>
-        <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
-        <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
-        <div class="row">
-          <div class="large-3 column medium-4 small-5">
-            <%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>
-          </div>
-          <div class="large-4 column medium-4 hide-for-small">
-            <%= instagram_art.tags.truncate(120, separator: ' ') %>
-          </div>
-          <div class="large-5 medium-4 small-7 column text-right">
-            <%= distance_apart.round(2) %> mi
-          </div>
-        </div>
-      <% end %>
   <div class="row">
     <div class="left">
       Page <%= page_count %> of <%= @instagram_arts.total_pages %>
