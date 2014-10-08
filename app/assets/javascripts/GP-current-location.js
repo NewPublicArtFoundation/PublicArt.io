@@ -7,7 +7,7 @@
     GP.initGeolocation = function(){
         if( navigator.geolocation ){
             // Call getCurrentPosition with success and failure callbacks
-            navigator.geolocation.getCurrentPosition( GP.success, GP.fail );
+            navigator.geolocation.getCurrentPosition( function(){ GP.success }, function(){ GP.fail } );
         } else {
             alert("Sorry, your browser does not support geolocation services.");
         }
@@ -23,6 +23,7 @@
     }
 
     $('.GP_get_location').on('click', function(e){
+        console.log('Clicked');
         e.preventDefault();
         GP.initGeolocation();
     });
