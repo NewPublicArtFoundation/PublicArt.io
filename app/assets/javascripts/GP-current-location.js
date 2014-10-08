@@ -1,8 +1,7 @@
+var GP = {} || GP;
+
 (function(){
-
     console.log('GP active');
-
-    var GP = {} || GP;
 
     GP.initGeolocation = function(){
         if( navigator.geolocation ){
