@@ -32,7 +32,14 @@
 
 <% if @instagram_arts != nil %>
 
-  <h3>Results for <%= params[:search] %>(<%= @result_count %> within 10 miles)</h3>
+  <% if(params.has_key?(:page)) %>
+  <%   page_range_low = 1 + (10 * params[:page]) %> 
+  <% else %>
+  <%   page_range_low = 1 %>
+  <% end %>
+
+  <h3>Results for <b><%= params[:search] %></b></h3>
+  <h4>Showing <%= page_range_low %>-<%= page_range_low + 25 %> of <%= @result_count %> within 10 miles</h3>
 
   <%= paginate @instagram_arts %>
 
