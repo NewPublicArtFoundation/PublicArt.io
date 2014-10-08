@@ -29,6 +29,12 @@ var GP = {} || GP;
         console.log('Clicked');
         GP.initGeolocation();
         e.preventDefault();
-        GP.processSearch();
+        if(GP.lat != undefined){
+            GP.processSearch();
+        } else {
+            setTimeout(function(){
+                GP.initGeolocation();
+            }, 500);
+        }
     });
 })();
