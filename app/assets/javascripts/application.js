@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//
+//= require GP-current-location
+//
 //= require turbolinks
 //= require_tree .
