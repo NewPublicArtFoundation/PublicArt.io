@@ -26,9 +26,9 @@ var GP = {} || GP;
     }
 
     $('.GP_get_location').on('click', function(e){
+        e.preventDefault();
         console.log('Clicked');
         GP.initGeolocation();
-        e.preventDefault();
         if(GP.lat != undefined){
             GP.processSearch();
         } else {
