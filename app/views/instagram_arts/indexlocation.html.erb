@@ -20,7 +20,7 @@
       </ul>
 
       <ul class="right">
-        <li class="has-form show-for-large-up">
+        <li class="has-form">
           <a href="#" class="GP_get_location button">Get Current Location</a>
         </li>
       </ul>
@@ -75,13 +75,24 @@
 <% end %>
 
 <div class="icon-bar three-up fixed-bottom">
-  <a class="item">
-  <%= image_tag "fi-bookmark.svg" %>
+  <a class="item item-bookmark" href="/find" >
+    <%= image_tag "fi-home.svg" %>
   </a>
-  <a class="item">
-  <%= image_tag "fi-info.svg" %>
+  <a class="item item-info" data-reveal-id="infoModal" >
+    <%= image_tag "fi-info.svg" %>
   </a>
-  <a class="item">
-  <%= image_tag "fi-mail.svg" %>
+  <a class="item item-mail" data-reveal-id="mailModal" >
+    <%= image_tag "fi-mail.svg" %>
   </a>
+</div>
+
+<div id="infoModal" class="reveal-modal" data-reveal>
+  <h2>What is GraffPass?</h2>
+  <p>This is an graffiti related experiment run by <a href="http://twitter.com/rememberlenny">Leonard Bogdonoff (@rememberlenny).</a></p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="mailModal" class="flex-video reveal-modal" data-reveal>
+  <iframe src="https://docs.google.com/forms/d/1kTnppJF2mSZjOllBKEJTfSiJRPKA3646P2GKbp2vn7I/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  <a class="close-reveal-modal">&#215;</a>
 </div>
