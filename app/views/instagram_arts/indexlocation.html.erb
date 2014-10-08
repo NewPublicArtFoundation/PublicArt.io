@@ -1,35 +1,3 @@
-<nav class="top-bar" data-topbar="" role="navigation">
-  <ul class="title-area">
-    <li class="name"><h1><a href="#">GraffPass</a></h1></li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Search</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <%= form_tag find_path, :method => :get do %>
-      <ul class="left">
-        <li class="has-form">
-          <div class="row collapse">
-            <div class="large-8 small-9 columns">
-              <%= text_field_tag :search, params[:search] %>
-            </div>
-            <div class="large-4 small-3 columns">
-              <%= submit_tag "Search", :name => nil, :class => 'alert button expand' %>
-            </div>
-          </div>
-        </li>
-      </ul>
-
-      <ul class="right">
-        <li class="has-form">
-          <a href="#" class="GP_get_location button">Get Current Location</a>
-        </li>
-      </ul>
-    <% end %>
-  </section>
-</nav>
-
-
-
 <% if @instagram_arts != nil %>
 
   <% if(params.has_key?(:page)) %>
