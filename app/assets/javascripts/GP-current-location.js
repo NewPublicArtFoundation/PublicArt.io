@@ -20,5 +20,5 @@ GP.fail = function(){
 
 $('.GP_get_location').on('click', function(e){
     e.preventDefault();
-    initGeolocation();
+    GP.initGeolocation();
 });
