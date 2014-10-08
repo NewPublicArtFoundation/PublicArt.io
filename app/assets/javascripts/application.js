@@ -9,10 +9,10 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require foundation
 //= require jquery
 //= require jquery_ujs
 //
+//= require foundation
 //= require GP-current-location
 //
 //= require turbolinks
