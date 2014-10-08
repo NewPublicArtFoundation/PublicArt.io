@@ -13,6 +13,29 @@
   <%= yield %>
 </div>
 
+<div class="icon-bar three-up fixed-bottom">
+  <a class="item item-bookmark" href="/find" >
+    <%= image_tag "fi-home.svg" %>
+  </a>
+  <a class="item item-info" data-reveal-id="infoModal" >
+    <%= image_tag "fi-info.svg" %>
+  </a>
+  <a class="item item-mail" data-reveal-id="mailModal" >
+    <%= image_tag "fi-mail.svg" %>
+  </a>
+</div>
+
+<div id="infoModal" class="reveal-modal" data-reveal>
+  <h2>What is GraffPass?</h2>
+  <p>This is an graffiti related experiment run by <a href="http://twitter.com/rememberlenny">Leonard Bogdonoff (@rememberlenny).</a> <br><a href="http://blog.rememberlenny.com">Blog</a><br><a href="http://github.com/rememberlenny">Github</a><br><a href="mailto:rememberlenny@gmail.com">Email</a></p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="mailModal" class="reveal-modal" data-reveal>
+  <iframe src="https://docs.google.com/forms/d/1kTnppJF2mSZjOllBKEJTfSiJRPKA3646P2GKbp2vn7I/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
