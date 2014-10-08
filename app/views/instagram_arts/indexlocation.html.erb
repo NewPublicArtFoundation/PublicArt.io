@@ -1,6 +1,6 @@
 <nav class="top-bar" data-topbar="" role="navigation">
   <ul class="title-area">
-    <li class="name"><h1><a href="#">GrafPass</a></h1></li>
+    <li class="name"><h1><a href="#">GraffPass</a></h1></li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
 
@@ -39,10 +39,10 @@
   <%   page_count = 1 %>
   <%   page_range_low = 1 %> 
   <% end %>
-  <div class="row">
+  <div class="row large-12">
     <h3>Results for <b><%= params[:search] %></b></h3>
   </div>
-  <div class="row">
+  <div class="row large-12">
     <h4 class="left"><%= @result_count %> pieces within 10 miles</h4>
     <p class="right">Showing <%= page_range_low %>-<%= page_range_low + 25 %></p>
   </div>
@@ -50,7 +50,7 @@
   <% @instagram_arts.each do |instagram_art| %>
     <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
     <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
-    <div class="row">
+    <div class="row large-12">
       <div class="large-3 column medium-4 small-5">
         <%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>
       </div>
@@ -63,7 +63,7 @@
     </div>
   <% end %>
 
-  <div class="row">
+  <div class="row large-12">
     <div class="left">
       Page <%= page_count %> of <%= @instagram_arts.total_pages %>
     </div>
