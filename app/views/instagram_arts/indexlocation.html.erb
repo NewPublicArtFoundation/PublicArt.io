@@ -72,7 +72,7 @@
           "title": '<%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>',
           "description": '<%= instagram_art.tags %>'
         }
-      }<% if !index+1 == len %><%= ',' %><% end %>
+      }<% if index+1 != len %><%= ',' %><% end %>
     <% end %>
   ];
 </script>
