@@ -22,17 +22,25 @@
       </tr>
     </thead>
     <tbody>
-      <% @instagram_arts.each do |instagram_art| %>
-        <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
-        <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
-        <tr>
-          <td>
-            <%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>
-          </td>
-          <td><%= instagram_art.tags %></td>
-          <td><%= distance_apart.round(2) %> mi</td>
-        </tr>
-      <% end %>
+      <script>
+        var geojson = [
+          <% @instagram_arts.each do |instagram_art| %>
+            <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
+            <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [<%= instagram_art.latitude %>, <%= instagram_art.longitude %>]
+              },
+              "properties": {
+                "title": "<%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>",
+                "description": "<%= instagram_art.tags %>"
+              }
+            },
+          <% end %>
+        ];
+      </script>
     </tbody>
   </table>
 
