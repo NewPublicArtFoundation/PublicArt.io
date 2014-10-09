@@ -20,7 +20,7 @@ class InstagramArtsController < ApplicationController
         end
       }
       format.json {
-        render :file => 'indexlocation.json.erb',
+        render :file => 'instagram_arts/indexlocation.json.erb',
                :content_type => 'application/json'
       }
     end
