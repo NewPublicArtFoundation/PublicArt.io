@@ -58,22 +58,21 @@
 
 <script>
   var geojson = [
-      {
-    <% @instagram_arts.each do |instagram_art| %>
+    <% len = @stuff.length %>
+    <% @instagram_arts.each_with_index do |instagram_art, index| %>
       <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
       <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
+      {
         "type": "Feature",
         "geometry": {
           "type": "Point",
           "coordinates": [<%= instagram_art.latitude %>, <%= instagram_art.longitude %>]
         },
         "properties": {
-          "title": "<%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>",
-          "description": "<%= instagram_art.tags %>"
+          "title": '<%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>',
+          "description": '<%= instagram_art.tags %>'
         }
-      },
-      {
+      }<% if index+1 == len %><%= ',' %><% end %>
     <% end %>
-      }
   ];
 </script>
