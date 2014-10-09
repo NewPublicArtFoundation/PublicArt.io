@@ -58,7 +58,7 @@
 
 <script>
   var geojson = [
-    <% len = @stuff.length %>
+    <% len = @instagram_arts.length %>
     <% @instagram_arts.each_with_index do |instagram_art, index| %>
       <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
       <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
