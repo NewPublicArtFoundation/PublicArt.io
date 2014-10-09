@@ -68,7 +68,7 @@
           "coordinates": [<%= instagram_art.latitude %>, <%= instagram_art.longitude %>]
         },
         "properties": {
-          "title": '<%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>',
+          "title": '<%= instagram_art.image_url %>',
           "description": '<%= instagram_art.tags %>'
         }
       }<% if index+1 != len %><%= ',' %><% end %>
