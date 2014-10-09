@@ -23,7 +23,7 @@
     </thead>
     <tbody>
       <script>
-        var geojson = [
+        GP.geojson = [
           <% @instagram_arts.each do |instagram_art| %>
             <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
             <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
