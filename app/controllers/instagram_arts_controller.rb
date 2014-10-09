@@ -10,12 +10,19 @@ class InstagramArtsController < ApplicationController
   # GET /arts
   # GET /arts.json
   def indexlocation
-    if params[:search].present?
-      @result_count = InstagramArt.near(params[:search], 10).count(:all)
+    respond_to do |format|
       @instagram_arts = InstagramArt.near(params[:search], 10).page params[:page]
-      @result_coordinates = Geocoder.coordinates(params[:search])
-    else
-      # @instagram_arts = InstagramArt.paginate(:page => params[:page], :per_page => 30)
+
+      format.html {
+        if params[:search].present?
+          @result_count = InstagramArt.near(params[:search], 10).count(:all)
+          @result_coordinates = Geocoder.coordinates(params[:search])
+        end
+      }
+      format.json {
+        render :file => 'indexlocation.json.erb',
+               :content_type => 'application/json'
+      }
     end
 
   end
