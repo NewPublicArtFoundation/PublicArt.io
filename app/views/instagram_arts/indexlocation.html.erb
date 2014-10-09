@@ -55,26 +55,26 @@
   </div>
 
 
-<script>
-  var geojson = [
-    <% len = @instagram_arts.length %>
-    <% @instagram_arts.each_with_index do |instagram_art, index| %>
-      <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
-      <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [<%= instagram_art.latitude %>, <%= instagram_art.longitude %>]
-        },
-        "properties": {
-          "title": '<%= instagram_art.image_url %>',
-          "description": '<%= instagram_art.tags %>'
-        }
-      }<% if index+1 != len %><%= ',' %><% end %>
-    <% end %>
-  ];
-</script>
+  <script>
+    var geojson = [
+      <% len = @instagram_arts.length %>
+      <% @instagram_arts.each_with_index do |instagram_art, index| %>
+        <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
+        <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [<%= instagram_art.latitude %>, <%= instagram_art.longitude %>]
+          },
+          "properties": {
+            "title": '<%= instagram_art.image_url, {:class => 'small-image'}) %>',
+            "description": '<%= instagram_art.tags %>'
+          }
+        }<% if index+1 != len %><%= ',' %><% end %>
+      <% end %>
+    ];
+  </script>
 
 <% end %>
 
