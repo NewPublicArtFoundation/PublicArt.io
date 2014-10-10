@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .content-wrapper{
-  .index-out&{
+  .index-out &{
     transform: translateX(-100%);
   }
 }
 
 .map-wrapper{
   transform: translateX(-100%);
-  .index-out&{
+  .index-out &{
     transform: translateX(0%);
   }
 }
