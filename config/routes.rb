@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'find' => 'instagram_arts#indexlocation'
+  get 'find'  => 'instagram_arts#indexlocation'
 
   # concern :paginatable do
   #   get '(page/:page)', :action => :index, :on => :collection, :as => ''
