@@ -7,12 +7,12 @@
 <% end %>
 {
   "search_term": "<%= params[:search] %>",
-  "page_number": "<%= page_count %>",
-  "page_total": "<%= @instagram_arts.total_pages %>",
+  "page_number": <%= page_count %>,
+  "page_total": <%= @instagram_arts.total_pages %>,
   "result": {
-    "count": "<%= @result_count %>",
-    "low": "<%= page_range_low %>",
-    "high": "<%= page_range_low + 25 %>"
+    "count": <%= @result_count %>,
+    "low": <%= page_range_low %>,
+    "high": <%= page_range_low + 25 %>
   },
   "data": [
     <% len = @instagram_arts.length %>
@@ -28,8 +28,8 @@
         "properties": {
           "title": "<%= instagram_art.image_url %>",
           "description": "<%= instagram_art.tags %>",
-          "count": "<%= index %>",
-          "id": "<%= instagram_art.id %>"
+          "count": <%= index %>,
+          "id": <%= instagram_art.id %>
         }
       }<% if index+1 != len %><%= ',' %><% end %>
     <% end %>
