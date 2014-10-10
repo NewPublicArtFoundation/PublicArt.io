@@ -16,6 +16,10 @@
     }
   });
 
+  $('.button-back').on('click', function(e){
+    removeIndexOut();
+  });
+
   var removeIndexOut = function(){
     $('body').removeClass('index-out');
   }
