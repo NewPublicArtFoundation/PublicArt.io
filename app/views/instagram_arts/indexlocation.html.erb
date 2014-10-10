@@ -36,10 +36,16 @@
         <%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>
       </div>
       <div class="large-4 column medium-4 hide-for-small">
-        <%= instagram_art.tags.truncate(120, separator: ' ') %>
+        <div class="row">
+          <%= instagram_art.tags.truncate(120, separator: ' ') %>
+        </div>
+        <div class="row">
+          <%= distance_apart.round(2) %> mi
+        </div>
       </div>
       <div class="large-3 medium-4 small-3 column text-right">
-        <%= distance_apart.round(2) %> mi
+        <a href="#view" data-id="<%= instagram_art.id %>" data-action='view' class="button small large-12">View</a>
+        <a href="#flag" data-id="<%= instagram_art.id %>" data-action='flag' class="button small secondary large-12">Flag</a>
       </div>
     </div>
   <% end %>
