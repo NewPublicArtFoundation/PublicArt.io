@@ -21,6 +21,7 @@
       <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
       {
         "type": "Feature",
+        "distance": <%= distance_apart %>,
         "geometry": {
           "type": "Point",
           "coordinates": [<%= instagram_art.latitude %>, <%= instagram_art.longitude %>]
