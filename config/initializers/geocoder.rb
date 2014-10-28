@@ -1,10 +1,10 @@
 Geocoder.configure(
   # geocoding options
-  # :timeout      => 3,           # geocoding service timeout (secs)
+  :timeout      => 5,           # geocoding service timeout (secs)
   :lookup       => :google,     # name of geocoding service (symbol)
   # :language     => :en,         # ISO-639 language code
   # :use_https    => false,       # use HTTPS for lookup requests? (if supported)
-  # :http_proxy   => nil,         # HTTP proxy server (user:pass@host:port)
+  :http_proxy   => ENV['QUOTAGUARD_URL'],         # HTTP proxy server (user:pass@host:port)
   # :https_proxy  => nil,         # HTTPS proxy server (user:pass@host:port)
   :api_key      => 'AIzaSyCyxWaVv1MoA1dEhZcO-k8Zxnpr2YkIQ0E',         # API key for geocoding service
   # :cache        => nil,         # cache object (must respond to #[], #[]=, and #keys)
