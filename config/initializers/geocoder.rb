@@ -6,7 +6,7 @@ Geocoder.configure(
   # :use_https    => false,       # use HTTPS for lookup requests? (if supported)
   :http_proxy   => ENV['QUOTAGUARD_URL'],         # HTTP proxy server (user:pass@host:port)
   # :https_proxy  => nil,         # HTTPS proxy server (user:pass@host:port)
-  :api_key      => 'AIzaSyCyxWaVv1MoA1dEhZcO-k8Zxnpr2YkIQ0E',         # API key for geocoding service
+  :api_key      => 'AIzaSyDOa4xRVQXJTsu5PySr4C_kHnDMI0uxeKk',         # API key for geocoding service
   # :cache        => nil,         # cache object (must respond to #[], #[]=, and #keys)
   # :cache_prefix => "geocoder:", # prefix (string) to use for all cache keys
 
