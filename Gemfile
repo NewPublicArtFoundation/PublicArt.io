@@ -37,9 +37,9 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  # gem 'sqlite3'
+  gem 'sqlite3'
   gem 'spork-rails', '4.0.0'
-  gem 'pg'
+  # gem 'pg'
   gem 'childprocess', '0.3.6'
 end
 
