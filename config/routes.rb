@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #   get '(page/:page)', :action => :index, :on => :collection, :as => ''
   # end
 
+  resources :instagram_arts, only: [:show]
   # resources :instagram_arts, :concerns => :paginatable
 
   get 'slide' => 'instagram_arts#iosview'
