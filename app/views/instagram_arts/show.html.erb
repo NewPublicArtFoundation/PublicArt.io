@@ -36,11 +36,6 @@
       <h4>0.01 miles away</h4>
       <h4 class="subheader">North-east</h4>
     </div>
-    <div class="row tag-container border-bottom">
-      <% tags.each do |tag| %>
-      <h5><%= tag %></h5>
-      <% end %>
-    </div>
     <div class="row credit-container">
       <h3 class="credit-photo">Photographer</h3>
     </div>
@@ -52,4 +47,9 @@
       <% end %>
     </div>
   </div>
+</div>
+<div class="row tag-container ">
+  <% tags.each do |tag| %>
+  <h5><%= tag %></h5>
+  <% end %>
 </div>
