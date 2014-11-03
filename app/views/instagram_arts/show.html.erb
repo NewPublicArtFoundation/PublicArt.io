@@ -4,7 +4,7 @@
 
 </div>
 <div class="row image-container">
-  <div class="large-12 image-wrapper">
+  <div class="large-12 image-wrapper main-image">
     <%= image_tag @instagram_arts.image_url, alt: @instagram_arts.tags %>
   </div>
 </div><!-- div.image-container -->
@@ -47,9 +47,7 @@
   </div>
   <div class="small-5 column">
     <div class="large-12 image-wrapper row">
-        <%= link_to "comgooglemaps-x-callback://?center=#{@instagram_arts.latitude},#{@instagram_arts.longitude}
-         &x-success=artfoundapp://?resume=true
-         &x-source=Return%2Cto%2CArtfound" do %>
+        <%= link_to "comgooglemaps-x-callback://?center=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&x-success=artfoundapp://?resume=true&x-source=Return%2Cto%2CArtfound" do %>
       <%= image_tag "http://maps.google.com/maps/api/staticmap?size=408x518&sensor=false&zoom=16&markers=#{@instagram_arts.latitude}%2C#{@instagram_arts.longitude}" %>
       <% end %>
     </div>
