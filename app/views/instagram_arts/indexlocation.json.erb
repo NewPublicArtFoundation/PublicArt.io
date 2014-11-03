@@ -30,7 +30,7 @@
           "title": "<%= instagram_art.image_url %>",
           "description": "<%= instagram_art.tags %>",
           "count": <%= index %>,
-          "id": <%= instagram_art.id %>
+          "id": "<%= instagram_art.id %>"
         }
       }<% if index+1 != len %><%= ',' %><% end %>
     <% end %>
