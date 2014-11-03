@@ -47,7 +47,7 @@
   </div>
   <div class="small-5 column">
     <div class="large-12 image-wrapper row">
-      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=408x518&sensor=false&zoom=16&markers=#{@instagram_arts.latitude}%2C#{@instagram_arts.longitude}" %>
+      <%= link_to image_tag "http://maps.google.com/maps/api/staticmap?size=408x518&sensor=false&zoom=16&markers=#{@instagram_arts.latitude}%2C#{@instagram_arts.longitude}", "comgooglemaps://?center={@instagram_arts.latitude},{@instagram_arts.longitude}&zoom=12" %>
     </div>
   </div>
 </div>
