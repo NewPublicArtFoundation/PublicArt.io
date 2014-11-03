@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # resources :instagram_arts, :concerns => :paginatable
 
+  get 'slide' => 'instagram_arts#iosview'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,131 @@
+<style>
+  .content-wrapper{
+    margin: 0em;
+    padding: 0em;
+  }
+  .image-wrapper img{
+    width: 100%;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .text-right{
+    text-align: right;
+  }
+  .button-wrapper{
+  }
+  .distance-holder h4{
+    color: #FF937A;
+    margin: 0px;
+    line-height: 1.2em;
+    font-size: 1em;
+  }
+  .distance-holder h4.subheader{
+    color: #777;
+    font-size: .8em;
+  }
+  h3.credit-photo{
+    font-size: .8em;
+    color: #777;
+  }
+  .tag-container,
+  .credit-container,
+  .distance-holder{
+    padding: .5em 1em;
+  }
+  .tag-container h5{
+    line-height: 1.5em;
+    padding: .1em .3em;
+    margin: .1em;
+    background: #eee;
+    font-size:.8em;
+    color: #777;
+    display: inline;
+  }
+  .border-bottom{
+    border-bottom: 1px solid #ddd;
+  }
+  .primary-actions{
+    border-bottom: 1px solid #ddd;
+    padding: 1em 0;
+  }
+  a.button.secondary,
+  a.button{
+    background-color: transparent;
+    margin: 0em;
+    border: 1px solid #FF937A;
+    color: #FF937A;
+  }
+  a.button.primary:hover{
+    background: #FF381B;
+    color: #eee;
+  }
+  a.button.secondary:hover{
+    background: #FF937A;
+    color: white;
+  }
+  .flag-button{
+    font-size: 0.6875rem;
+    text-decoration: underline;
+    color: #FF937A;
+  }
+  a.button.primary{
+    color: white;
+    background: #FF937A;
+  }
+  .fr{
+    float: right;
+  }
+</style>
+
+<div class="row pre-head"></div>
+<div class="row image-container">
+  <div class="large-12 image-wrapper">
+    <%= image_tag 'test-image.jpg'  %>
+  </div>
+</div><!-- div.image-container -->
+<div class="row primary-actions">
+  <div class="large-12 column">
+    <div class="row button-wrapper">
+      <div class="text-center  large-6 medium-6 small-6 column">
+        <a href="#" class="small-12 tiny button round secondary">
+          Map
+        </a>
+      </div>
+      <div class="text-center  large-6 medium-6 small-6 column">
+        <a href="#" class="small-12 tiny button round primary">
+          Share
+        </a>
+      </div>
+    </div><!-- div.button-wrapper -->
+    <div class="fr secondary-button-wrapper row column ">
+      <div class="">
+        <a href="#" class="flag-button">Flag this image</a>
+      </div>
+    </div><!-- div.secondary-button-wrapper -->
+  </div>
+</div><!-- div.primary-actions -->
+
+<div class="row secondary-actions border-bottom">
+  <div class="small-7 column">
+    <div class="row distance-holder border-bottom">
+      <h4>0.01 miles away</h4>
+      <h4 class="subheader">North-east</h4>
+    </div>
+    <div class="row tag-container border-bottom">
+      <h5>Test</h5>
+      <h5>Test</h5>
+      <h5>Test</h5>
+      <h5>Test</h5>
+      <h5>Test</h5>
+    </div>
+    <div class="row credit-container">
+      <h3 class="credit-photo">Photographer</h3>
+    </div>
+  </div>
+  <div class="small-5 column">
+    <div class="large-12 image-wrapper row">
+      <%= image_tag 'test-map.jpg' %>
+    </div>
+  </div>
+</div>

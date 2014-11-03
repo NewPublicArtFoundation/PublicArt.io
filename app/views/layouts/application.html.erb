@@ -5,71 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
-  <%= javascript_include_tag "vendor/modernizr" %>
 </head>
 <body>
-
-<nav class="top-bar" data-topbar="" role="navigation">
-  <ul class="title-area">
-    <li class="name"><h1><a href="#">GraffPass</a></h1></li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Search</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <%= form_tag find_path, :method => :get do %>
-      <ul class="left">
-        <li class="has-form">
-          <div class="row collapse">
-            <div class="large-8 small-9 columns">
-              <%= text_field_tag :search, params[:search], placeholder: 'Enter location here' %>
-            </div>
-            <div class="large-4 small-3 columns">
-              <%= submit_tag "Search", :name => nil, :class => 'alert button expand' %>
-            </div>
-          </div>
-        </li>
-      </ul>
-
-      <ul class="right">
-        <li class="has-form">
-          <a href="#" class="GP_get_location button">Get Current Location</a>
-        </li>
-      </ul>
-    <% end %>
-  </section>
-</nav>
-
-
-<div class="content-wrapper">
-  <%= yield %>
-</div>
-<div class="map-wrapper">
-  <a href="#" class="button button-back">Back</a>
-</div>
-
-<div class="icon-bar three-up fixed-bottom">
-  <a class="item item-bookmark" href="/find" >
-    <%= image_tag "fi-home.svg" %>
-  </a>
-  <a class="item item-info" data-reveal-id="infoModal" >
-    <%= image_tag "fi-info.svg" %>
-  </a>
-  <a class="item item-mail" data-reveal-id="mailModal" >
-    <%= image_tag "fi-mail.svg" %>
-  </a>
-</div>
-
-<div id="infoModal" class="reveal-modal" data-reveal>
-  <h2>What is GraffPass?</h2>
-  <p>This is an graffiti related experiment run by <a href="http://twitter.com/rememberlenny">Leonard Bogdonoff (@rememberlenny).</a> <br><a href="http://blog.rememberlenny.com">Blog</a><br><a href="http://github.com/rememberlenny">Github</a><br><a href="mailto:rememberlenny@gmail.com">Email</a></p>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
-
-<div id="mailModal" class="reveal-modal flex-video" data-reveal>
-  <iframe src="https://docs.google.com/forms/d/1kTnppJF2mSZjOllBKEJTfSiJRPKA3646P2GKbp2vn7I/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
-
+<%= yield %>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
