@@ -46,8 +46,11 @@
     </div>
   </div>
 </div>
-<div class="row tag-container ">
+
+<div class="row tag-container border-bottom">
   <% tags.each do |tag| %>
   <h5><%= tag %></h5>
   <% end %>
 </div>
+
+<%= render 'layouts/footer' %>
