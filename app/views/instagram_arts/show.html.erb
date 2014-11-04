@@ -15,14 +15,14 @@
         <%= link_to 'Map', "comgooglemaps-x-callback://?q=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&center=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&x-success=artfoundapp://?resume=true&x-source=Return to Artfound", :class=>'small-12 tiny button round secondary' %>
       </div>
       <div class="text-center  large-6 medium-6 small-6 column">
-        <a href="mailto://?subject=Must see street art&body=There is amazing art right here: http://maps.google.com/maps/api/staticmap?size=408x518&sensor=false&zoom=16&markers=<%= @instagram_arts.latitude %>,<%= @instagram_arts.longitude %>" class="small-12 tiny button round primary">
+        <a href="mailto:?subject=Check out this street art&body=There is amazing art right here: http://maps.google.com/maps/api/staticmap?size=408x518&sensor=false&zoom=16&markers=<%= @instagram_arts.latitude %>,<%= @instagram_arts.longitude %>" class="small-12 tiny button round primary">
           Share
         </a>
       </div>
     </div><!-- div.button-wrapper -->
     <div class="fr secondary-button-wrapper row column ">
       <div class="">
-        <a href="mailto://rememberlenny@gmail.com?subject=Flagging issue&body=There is an issue with this page. ID: <%= @instagram_arts.id %>" class="flag-button">Flag this image</a>
+        <a href="mailto:rememberlenny@gmail.com?subject=Flagging issue&body=There is an issue with this page. TIME: <%= Time.now.getutc %>, ID: <%= @instagram_arts.id %>" class="flag-button">Flag this image</a>
       </div>
     </div><!-- div.secondary-button-wrapper -->
   </div>
