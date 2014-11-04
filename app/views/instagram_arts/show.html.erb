@@ -15,7 +15,7 @@
         <%= link_to 'Map', "comgooglemaps-x-callback://?q=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&center=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&x-success=artfoundapp://?resume=true&x-source=Return to Artfound", :class=>'small-12 tiny button round secondary' %>
       </div>
       <div class="text-center  large-6 medium-6 small-6 column">
-        <a href="mailto://&subject=Look at this street art&body=I found this with Public Artfound." class="small-12 tiny button round primary">
+        <a href="mailto://rememberlenny@gmail.com&subject=Flagging issue&body=There is an issue with this page. ID: <%= @instagram_arts.id %>, Image: <%= @instagram_arts.image_url %>" class="small-12 tiny button round primary">
           Share
         </a>
       </div>
