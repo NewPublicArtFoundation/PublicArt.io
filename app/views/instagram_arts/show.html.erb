@@ -15,14 +15,14 @@
         <%= link_to 'Map', "comgooglemaps-x-callback://?q=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&center=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&x-success=artfoundapp://?resume=true&x-source=Return to Artfound", :class=>'small-12 tiny button round secondary' %>
       </div>
       <div class="text-center  large-6 medium-6 small-6 column">
-        <a href="mailto://rememberlenny@gmail.com&subject=Flagging issue&body=There is an issue with this page. ID: <%= @instagram_arts.id %>, Image: <%= @instagram_arts.image_url %>" class="small-12 tiny button round primary">
+        <a  class="small-12 tiny button round primary">
           Share
         </a>
       </div>
     </div><!-- div.button-wrapper -->
     <div class="fr secondary-button-wrapper row column ">
       <div class="">
-        <a href="#" class="flag-button">Flag this image</a>
+        <a href="mailto://rememberlenny@gmail.com&subject=Flagging issue&body=There is an issue with this page. ID: <%= @instagram_arts.id %>, Image: <%= @instagram_arts.image_url %>" class="flag-button">Flag this image</a>
       </div>
     </div><!-- div.secondary-button-wrapper -->
   </div>
