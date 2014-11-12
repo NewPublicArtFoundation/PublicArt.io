@@ -31,8 +31,8 @@ class InstagramArtsController < ApplicationController
   # GET /arts/1.json
   def show
     @distance_away = ""
-    if(params['d'] != nil)
-      @distance_away = params['d']
+    if(params[:dist] != nil)
+      @distance_away = params[:dist]
     end
     @instagram_arts = InstagramArt.find(params[:id])
   end
