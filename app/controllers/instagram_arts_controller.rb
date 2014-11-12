@@ -11,7 +11,10 @@ class InstagramArtsController < ApplicationController
   # GET /arts.json
   def indexlocation
     if params[:search].present?
-      next_page = params[:page] + 1
+      next_page = 1
+      if params[:page].present?
+        next_page = params[:page] + 1
+      end
       @search_url = 'http://graffpass.com?find/?search=' + params[:search] + "&page=" + next_page
       @instagram_arts = InstagramArt.near(params[:search], 10).page params[:page]
       @result_count = InstagramArt.near(params[:search], 10).count(:all)
