@@ -15,7 +15,7 @@ class InstagramArtsController < ApplicationController
       if params[:page].present?
         next_page = params[:page].to_i + 1
       end
-      @search_url = 'http://graffpass.com?find.json/?search=' + params[:search] + "&page=" + next_page.to_s
+      @search_url = 'http://graffpass.com/find.json/?search=' + params[:search] + "&page=" + next_page.to_s
       @instagram_arts = InstagramArt.near(params[:search], 10).page params[:page]
       @result_count = InstagramArt.near(params[:search], 10).count(:all)
       @result_coordinates = Geocoder.coordinates(params[:search])
