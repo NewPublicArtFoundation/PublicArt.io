@@ -1,5 +1,13 @@
 <% tags = @instagram_arts.tags.split %>
-
+<script>
+  function alert(words){
+    var iframe = document.createElement("IFRAME");
+    iframe.setAttribute("src", 'data:text/plain,');
+    document.documentElement.appendChild(iframe);
+    window.frames[0].window.alert(words);
+    iframe.parentNode.removeChild(iframe);
+  }
+</script>
 <div class="row pre-head">
 
 </div>
