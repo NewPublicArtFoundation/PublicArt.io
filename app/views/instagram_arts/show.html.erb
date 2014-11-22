@@ -88,6 +88,16 @@
       { "Link location": "Map" }
     );
   }
+
+  var imageClicked = function(){
+    mixpanel.track(
+      "Hero image clicked",
+      { "Image clicked": "true" }
+    );
+  }
+  $('.main-image').on('click', function(){
+    imageClicked();
+  });
   $('.map-button-link').on('click', function(){
     clickMapButtonLink();
   });
