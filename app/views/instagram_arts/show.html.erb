@@ -99,9 +99,10 @@
   });
   $('.flag-button').on('click', function(){
     flagSubmission();
+    $('.flag-button').html('Thank you');
   });
 
-    mixpanel.track_links("a", "click nav link", {
-        "referrer": document.referrer
-    });
+  mixpanel.track_links("a", "click nav link", {
+      "referrer": document.referrer
+  });
 </script>
