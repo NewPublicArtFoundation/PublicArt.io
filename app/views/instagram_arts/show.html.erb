@@ -100,4 +100,8 @@
   $('.flag-button').on('click', function(){
     flagSubmission();
   });
+
+    mixpanel.track_links("a", "click nav link", {
+        "referrer": document.referrer
+    });
 </script>
