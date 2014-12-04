@@ -37,19 +37,16 @@
 </div><!-- div.primary-actions -->
 
 <div class="row secondary-actions border-bottom">
-  <div class="small-7 column">
-    <div class="row distance-holder border-bottom">
+  <div class="small-12 column">
+    <div class="row border-bottom">
       <h4><%= @distance_away %> miles away</h4>
       <h4 class="subheader"></h4>
     </div>
-    <div class="row credit-container">
-      <h3 class="credit-photo">Photographer</h3>
-    </div>
   </div>
-  <div class="small-5 column">
-    <div class="large-12 image-wrapper row map-wrap">
+  <div class="small-12 column">
+    <div class="large-12 image-wrapper row map-wrap border-bottom">
       <%= link_to "comgooglemaps-x-callback://?q=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&center=#{@instagram_arts.latitude},#{@instagram_arts.longitude}&x-success=artfoundapp://?resume=true&x-source=Return to Artfound" do %>
-        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=408x518&sensor=false&zoom=16&markers=#{@instagram_arts.latitude}%2C#{@instagram_arts.longitude}" %>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=800x400&sensor=false&zoom=16&markers=#{@instagram_arts.latitude}%2C#{@instagram_arts.longitude}" %>
       <% end %>
     </div>
   </div>
