@@ -64,55 +64,5 @@
 <%= render 'layouts/footer' %>
 
 <script>
-  var flagSubmission = function(){
-    mixpanel.track(
-      "Flagged image",
-      { "Image ID": "<%= @instagram_arts.image_id %>" }
-    );
-  }
-  var clickShare = function(){
-    mixpanel.track(
-      "Clicked Share",
-      { "Shared": "Email" }
-    );
-  }
-  var clickMapButtonLink = function(){
-    mixpanel.track(
-      "Flagged image",
-      { "Link location": "Button" }
-    );
-  }
-  var clickMapMapLink = function(){
-    mixpanel.track(
-      "Flagged image",
-      { "Link location": "Map" }
-    );
-  }
 
-  var imageClicked = function(){
-    mixpanel.track(
-      "Hero image clicked",
-      { "Image clicked": "true" }
-    );
-  }
-  $('.main-image').on('click', function(){
-    imageClicked();
-  });
-  $('.map-button-link').on('click', function(){
-    clickMapButtonLink();
-  });
-  $('.share-button').on('click', function(){
-    clickShare();
-  });
-  $('.map-wrap').on('click', function(){
-    clickMapMapLink();
-  });
-  $('.flag-button').on('click', function(){
-    flagSubmission();
-    $('.flag-button').html('Thank you');
-  });
-
-  mixpanel.track_links("a", "click nav link", {
-      "referrer": document.referrer
-  });
 </script>
