@@ -15,6 +15,7 @@ mixpanel.init("84d416fdfbfe20f78a60d04ab08cbc8c");</script><!-- end Mixpanel -->
 
 <script>
 var flagSubmission = function(){
+alert('Thank you! This submission has been flagged. ID: <%= @instagram_arts.id %>, <%= Time.now.getutc %>');
 mixpanel.track(
 "Flagged image",
 { "Image ID": "<%= @instagram_arts.image_id %>" }
