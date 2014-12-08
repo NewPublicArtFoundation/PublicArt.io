@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006141556) do
+ActiveRecord::Schema.define(version: 20141208144948) do
+
+  create_table "accesskeys", force: true do |t|
+    t.string   "client_id"
+    t.string   "client_secret"
+    t.string   "callback_url"
+    t.string   "source_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "instagram_arts", force: true do |t|
     t.text     "everything"

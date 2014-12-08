@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @accesskey.client_id %>
+</p>
+
+<p>
+  <strong>Client secret:</strong>
+  <%= @accesskey.client_secret %>
+</p>
+
+<p>
+  <strong>Callback url:</strong>
+  <%= @accesskey.callback_url %>
+</p>
+
+<p>
+  <strong>Source url:</strong>
+  <%= @accesskey.source_url %>
+</p>
+
+<%= link_to 'Edit', edit_accesskey_path(@accesskey) %> |
+<%= link_to 'Back', accesskeys_path %>

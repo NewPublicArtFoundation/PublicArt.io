@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :accesskeys
+
   get 'integration/instagram'
 
   get 'integration/flickr'
