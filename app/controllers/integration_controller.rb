@@ -3,10 +3,10 @@ class IntegrationController < ApplicationController
   def instagrams
   end
 
-  def instagramPull
+  def instagramOauthCallback
   end
 
-  def instagramToken
+  def instagramOauthConnect
   end
 
   def instagramResponse
