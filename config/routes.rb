@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'integration/instagram'
+
+  get 'integration/flickr'
+
   get 'find'  => 'instagram_arts#indexlocation'
 
   # concern :paginatable do
