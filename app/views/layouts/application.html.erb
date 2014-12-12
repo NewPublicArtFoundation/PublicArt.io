@@ -25,7 +25,7 @@
   connectWebViewJavascriptBridge(function(bridge) {
 
       /* Init your app here */
-
+      console.log('running');
       bridge.init(function(message, responseCallback) {
           alert('Received message: ' + message)
           if (responseCallback) {
