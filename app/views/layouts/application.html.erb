@@ -36,7 +36,11 @@
       bridge.send('Please respond to this', function responseCallback(responseData) {
           console.log("Javascript got its response", responseData)
       })
-  })
+  });
+
+  $('*').on('click', function(){
+    connectWebViewJavascriptBridge();
+  });
 </script>
 
 </body>
