@@ -24,7 +24,6 @@
   }
 
   connectWebViewJavascriptBridge(function(bridge) {
-
       /* Init your app here */
       console.log('running');
       bridge.init(function(message, responseCallback) {
@@ -33,11 +32,13 @@
               responseCallback("Right back atcha")
           }
       })
-      bridge.send('Hello from the javascript')
-      bridge.send('Please respond to this', function responseCallback(responseData) {
-          console.log("Javascript got its response", responseData)
-      });
-      bridge.registerHandler("shareButtonPressed", function(data) { alert('BUTTON PRESSED'); })
+
+      bridge.send('Hello from the javascript');
+  });
+
+  $('.share-button').on('click', function(){
+    alert('share clicked');
+    WebViewJavascriptBridge.callHandler("shareButtonPressed")
   });
 
 </script>
