@@ -46,6 +46,7 @@ class InstagramArtsController < ApplicationController
   # GET /arts/1.json
   def image
     @instagram_arts = InstagramArt.find(params[:id])
+    render :text => @instagram_arts.image_url.html_content
   end
 
   # GET /arts/new
