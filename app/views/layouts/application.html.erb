@@ -38,9 +38,14 @@
       })
   });
 
-  $('*').on('click', function(){
-    connectWebViewJavascriptBridge();
-  });
+  document.addEventListener('WebViewJavascriptBridgeReady', function(event) {
+      var bridge = event.bridge
+      // Start using the bridge
+      connectWebViewJavascriptBridge();
+
+
+  }, false);
+
 </script>
 
 </body>
