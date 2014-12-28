@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   get 'instagram_arts/:id/image' => 'instagram_arts#image'
   root 'pages#home_web'
 
-  # get "*any", via: :all, to: "errors#not_found" #404
+  get "*any", via: :all, to: "errors#not_found" #404
 end
