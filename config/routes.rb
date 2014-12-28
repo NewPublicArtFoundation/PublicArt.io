@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # concern :paginatable do
   #   get '(page/:page)', :action => :index, :on => :collection, :as => ''
   # end
+  get 'thanks' =>           'pages#thankyou'
   get 'explain' =>          'pages#explain'
   get 'about' =>            'pages#about'
   get 'privacy' =>          'pages#privacy'
