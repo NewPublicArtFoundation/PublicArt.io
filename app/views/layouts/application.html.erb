@@ -11,41 +11,6 @@
 
 <%= yield %>
 
-<script>
-  function connectWebViewJavascriptBridge(callback) {
-      console.log('running');
-      if (window.WebViewJavascriptBridge) {
-          callback(WebViewJavascriptBridge)
-      } else {
-          document.addEventListener('WebViewJavascriptBridgeReady', function() {
-              callback(WebViewJavascriptBridge)
-          }, false)
-      }
-  }
-
-  connectWebViewJavascriptBridge(function(bridge) {
-      /* Init your app here */
-      console.log('running');
-      bridge.init(function(message, responseCallback) {
-          alert('Received message: ' + message)
-          if (responseCallback) {
-              responseCallback("Right back atcha")
-          }
-      })
-
-      bridge.send('Hello from the javascript');
-  });
-
-  $('.share-button').on('click', function(){
-    WebViewJavascriptBridge.callHandler("shareButtonPressed");
-  });
-
-  $('.flag-button').on('click', function(){
-    WebViewJavascriptBridge.callHandler("flagButtonPressed");
-  });
-
-</script>
-
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

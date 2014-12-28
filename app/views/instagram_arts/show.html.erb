@@ -119,3 +119,39 @@ mixpanel.track_links("a", "click nav link", {
   $('.main-image').on('tap', function(){imageClicked});
   $('.map-wrap').on('tap', function(){clickMapMapLink});
 </script>
+
+
+<script>
+  function connectWebViewJavascriptBridge(callback) {
+      console.log('running');
+      if (window.WebViewJavascriptBridge) {
+          callback(WebViewJavascriptBridge)
+      } else {
+          document.addEventListener('WebViewJavascriptBridgeReady', function() {
+              callback(WebViewJavascriptBridge)
+          }, false)
+      }
+  }
+
+  connectWebViewJavascriptBridge(function(bridge) {
+      /* Init your app here */
+      console.log('running');
+      bridge.init(function(message, responseCallback) {
+          alert('Received message: ' + message)
+          if (responseCallback) {
+              responseCallback("Right back atcha")
+          }
+      })
+
+      bridge.send('Hello from the javascript');
+  });
+
+  $('.share-button').on('click', function(){
+    WebViewJavascriptBridge.callHandler("shareButtonPressed");
+  });
+
+  $('.flag-button').on('click', function(){
+    WebViewJavascriptBridge.callHandler("flagButtonPressed");
+  });
+
+</script>
