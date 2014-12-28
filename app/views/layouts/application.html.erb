@@ -13,6 +13,10 @@
 
 <%= yield %>
 
+  <% if !content_for?(:is_ios) %>
+    <%= 'layouts/footer_links' %>
+  <% end %>
+
   <%= render 'layouts/google_analytics' %>
 
 </body>
