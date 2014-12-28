@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # Instagram Connect
   get 'api/instagram/oauth/connect' => 'api#instagram_oauth_connect'
   get 'api/instagram/callback' => 'api#instagram_oauth_callback'
+  get 'api/instagram/callback/realtime' => 'api#instagram_realtime_callback'
 
 
   resources :instagram_arts, only: [:show]
@@ -25,5 +26,5 @@ Rails.application.routes.draw do
   get 'instagram_arts/:id/image' => 'instagram_arts#image'
   root 'pages#home_web'
 
-    get "*any", via: :all, to: "errors#not_found" #404
+  # get "*any", via: :all, to: "errors#not_found" #404
 end

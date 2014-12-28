@@ -10,4 +10,12 @@ class ApiController < ApplicationController
     redirect_to root_url
   end
 
+  def instagram_realtime_callback
+    if params["hub.challenge"]
+      render :text => params["hub.challenge"]
+    else
+    end
+  end
+
+
 end
