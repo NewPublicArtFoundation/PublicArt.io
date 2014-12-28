@@ -1,18 +1,30 @@
 ruby '2.0.0'
 source 'https://rubygems.org'
+# Backend
 gem 'rails', '4.1.2'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'geocoder'
+gem 'jbuilder', '~> 2.0'
+gem 'spring',        group: :development
+
+# Frontend
 gem 'foundation-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'kaminari'
-gem 'spring',        group: :development
+gem 'sass-rails', '~> 4.0.3'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+
+# Geolocation
+gem 'geocoder'
+
+# Analytics
 gem 'newrelic_rpm'
+
+# External Services
+gem 'instagram'
+
+# Other
+gem 'kaminari'
+gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development do
   gem 'pry-rails'
