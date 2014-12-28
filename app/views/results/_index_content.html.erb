@@ -1,0 +1,86 @@
+<% if !params.has_key?(:search) %>
+ <%= form_tag find_path, :method => :get do %>
+    <div class="row">
+        <%= text_field_tag :search, params[:search], placeholder: 'Enter location here', :class => 'large-12 column' %>
+    </div>
+    <div class="row">
+      <a href="#" class="button large-12 GP_get_location button column">Get Current Location</a>
+    </div>
+    <div class="row">
+        <%= submit_tag "Search", :name => nil, :class => 'alert button large-12 column' %>
+    </div>
+  <% end %>
+<% end %>
+<% if @instagram_arts != nil %>
+
+  <% if(params.has_key?(:page)) %>
+  <%   page_count = params[:page].to_i %>
+  <%   page_range_low = 1 + (10 * page_count) %>
+  <% else %>
+  <%   page_count = 1 %>
+  <%   page_range_low = 1 %>
+  <% end %>
+  <div class="row">
+    <h3 class="overflow-y">Results for <b><%= params[:search] %></b></h3>
+  </div>
+  <div class="row">
+    <h4 class="left"><%= @result_count %> pieces within 10 miles</h4>
+    <p class="right">Showing <%= page_range_low %>-<%= page_range_low + 50 %></p>
+  </div>
+
+  <% @instagram_arts.each do |instagram_art| %>
+    <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
+    <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
+    <div class="row" >
+      <div class="large-3 column medium-4 small-5">
+        <%= image_tag(instagram_art.image_url, {:class => 'small-image'}) %>
+      </div>
+      <div class="large-4 column medium-4 hide-for-small">
+        <div class="row">
+          <%= instagram_art.tags.truncate(120, separator: ' ') %>
+        </div>
+        <div class="row">
+          <%= distance_apart.round(2) %> mi
+        </div>
+      </div>
+      <div class="large-3 medium-4 small-3 column text-right">
+        <%= link_to "View", instagram_art_path(instagram_art.id), :class=> 'button-view button small large-12' %>
+        <a href="#flag" data-id="<%= instagram_art.id %>" data-action='flag' class="button-flag button small secondary large-12">Flag</a>
+      </div>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+    <div class="left">
+      Page <%= page_count %> of <%= @instagram_arts.total_pages %>
+    </div>
+    <div class="right">
+      <%= paginate @instagram_arts %>
+    </div>
+  </div>
+
+
+  <script>
+    var geojson = [
+      <% len = @instagram_arts.length %>
+      <% @instagram_arts.each_with_index do |instagram_art, index| %>
+        <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
+        <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [<%= instagram_art.latitude %>, <%= instagram_art.longitude %>]
+          },
+          "properties": {
+            "title": '<%= instagram_art.image_url %>',
+            "description": '<%= instagram_art.tags %>'
+          }
+        }<% if index+1 != len %><%= ',' %><% end %>
+      <% end %>
+    ];
+  </script>
+
+<% end %>
+
