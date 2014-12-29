@@ -56,7 +56,7 @@ $('.GP_get_location').on('click', function(e){
     } else {
         setTimeout(function(){
             GP.initGeolocation();
-        }, 500);
+        }, 100);
     }
 });
 

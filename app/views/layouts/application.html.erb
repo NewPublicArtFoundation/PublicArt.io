@@ -36,8 +36,18 @@
 
   <% end %>
   <%= yield %>
+
+  <% if !content_for?(:is_ios) %>
+  <div class="right">
+    <dl class="sub-nav">
+      <dd><%= link_to 'New Public Art Foundation', 'http://newpublicartfoundation.com' %></dd>
+      <dd><%= link_to 'Privacy', privacy_path %></dd>
+      <dd><%= link_to 'Thanks', thanks_path %></dd>
+    </dl>
+  </div>
+  <% end %>
+
 </div>
 <%= render 'layouts/google_analytics' %>
-
 </body>
 </html>
