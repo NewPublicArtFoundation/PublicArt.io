@@ -20,6 +20,9 @@ class InstagramPollController < ApplicationController
 
   def realtime_response
     puts 'We got this: ' + params.inspect
+    puts '_json: ' + params['_json']
+    puts 'index 0: ' + params['_json'][0]
+    puts 'object_id: ' + params['_json'][0]['object_id']
     create
     render :nothing => true, :status => 200, :content_type => 'text/html'
   end
