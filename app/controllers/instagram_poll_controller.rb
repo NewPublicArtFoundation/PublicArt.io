@@ -22,7 +22,8 @@ class InstagramPollController < ApplicationController
     puts 'We got this: ' + params.inspect
     if params['_json'] != nil
       if params['_json'][0] != nil
-        puts 'index 0: ' + params['_json'][0].inspect
+        puts 'index 0 (inspect): ' + params['_json'][0].inspect
+        puts 'object_id (str): ' + params['_json'][0]['object_id']
       end
     end
     # puts 'object_id: ' + params['_json'][0]['object_id']
