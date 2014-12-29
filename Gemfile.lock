@@ -46,6 +46,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    dalli (2.6.4)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -237,6 +238,7 @@ DEPENDENCIES
   binding_of_caller
   childprocess (= 0.3.6)
   coffee-rails (~> 4.0.0)
+  dalli
   devise
   devise_invitable
   devise_uid

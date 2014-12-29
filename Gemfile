@@ -29,6 +29,9 @@ gem 'geocoder'
 # Analytics
 gem 'newrelic_rpm'
 
+# Caching
+# gem 'dalli'
+
 # External Services
 gem 'instagram'
 
