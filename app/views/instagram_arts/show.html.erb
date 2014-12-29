@@ -4,6 +4,10 @@
 <%= render 'layouts/mobile_page_styles' %>
 <% tags = @instagram_arts.tags.split %>
 <script>
+  var PA = PA || {};
+  PA.id = "<%= @instagram_arts.id %>";
+</script>
+<script>
   function alert(words){
     var iframe = document.createElement("IFRAME");
     iframe.setAttribute("src", 'data:text/plain,');
@@ -154,6 +158,32 @@ mixpanel.track_links("a", "click nav link", {
 
   $('.flag-button').on('click', function(){
     WebViewJavascriptBridge.callHandler("flagButtonPressed");
+    postToGoogle();
   });
 
+</script>
+
+
+<script>
+
+  var postToGoogle = function() {
+    var field1 = PA.id;
+    // var field2 = lon;
+
+    $.ajax({
+        url: "https://docs.google.com/forms/d/19TmdAgos0j48ApewymWOgrept-WyeVdQy6BSw_J4HPw/formResponse",
+        // data: { "entry.1522668461": field1, "entry.2127807238": field2},
+        data: { "entry.1522668461": field1},
+        type: "POST",
+        dataType: "xml",
+        statusCode: {
+            0: function() {
+                //Success message
+            },
+            200: function() {
+                //Success Message
+            }
+        }
+    });
+}
 </script>
