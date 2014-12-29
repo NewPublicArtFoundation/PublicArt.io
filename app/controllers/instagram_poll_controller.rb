@@ -24,8 +24,8 @@ class InstagramPollController < ApplicationController
   end
 
   def create
-    if params[:instagram_poll][:_json][0][:object] == 'tag'
-      puts 'We got this ' + params[:instagram_poll][:_json][0]
+    if params[:object] == 'tag'
+      # puts 'We got this ' + params[:instagram_poll][:]
       changed_tag = params[:object_id]
       store_tag_response changed_tag
     end
