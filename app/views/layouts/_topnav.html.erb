@@ -1,13 +1,10 @@
-<% current_user = nil %>
-
   <div id="topnavwrapper">
-    <div class="">
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
             <h1><%= link_to root_path do %>
               <b>
-                <%#= render 'layouts/logo_small' %>
+                <%= render 'layouts/logo_small' %>
               </b>
             <% end %></h1>
           </li>
@@ -15,16 +12,8 @@
         </ul>
         <section class="top-bar-section">
           <!-- Left Nav Section -->
-          <% if current_user != nil %>
-            <div class="search-form-width column">
-              <form class="">
-                <input type="text" id="right-label" placeholder="">
-              </form>
-            </div>
-          <% end %>
           <ul class="left">
-
-
+            <%= render 'layouts/nav_links' %>
           </ul>
           <ul class="right">
             <% if signed_in? %>
@@ -39,15 +28,13 @@
                 <% end %>
               </li>
             <% else %>
-              <%= render 'layouts/topnav' %>
               <li class="no-span login">
                 <%= link_to new_user_session_path, :class=>'no-right-pad' do %>
                   <span>Sign In</span>
                 <% end %>
               </li>
               <li class="no-span login no-right-pad">
-                <%#= link_to new_user_registration_path, :class=>'no-right-pad' do %>
-                <%= link_to '#', :class=>'upload-trigger top-notice upload-notice-nav', :data=>{:reveal_id => "myModal"} do %>
+                <%= link_to new_user_registration_path, :class=>'no-right-pad' do %>
                   <span>Sign Up</span>
                 <% end %>
               </li>
@@ -55,24 +42,4 @@
           </ul>
         </section>
       </nav>
-    </div>
-    <% if current_user != nil %>
-    <div class="">
-      <nav class="top-bar" data-topbar>
-        <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <ul class="">
-            <% if !current_page?(root_url) %>
-              <li>
-                <%= link_to root_path do %>
-                  Home
-                <% end %>
-              </li>
-            <% end %>
-            <%= render 'layouts/nav_links' %>
-          </ul>
-        </section>
-      </nav>
-    </div>
-    <% end %>
   </div>

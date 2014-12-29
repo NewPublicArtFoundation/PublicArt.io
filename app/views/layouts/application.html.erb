@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <%= render 'layouts/meta_data' %>
   <% if !content_for?(:is_ios) %>
-    <%#= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "application" %>
   <% end %>
 
+  <%= render 'layouts/meta_data' %>
 </head>
 <body>
 
 <% if !content_for?(:is_ios) %>
-  <%#= render 'layouts/topnav' %>
+  <%= render 'layouts/topnav' %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <% end %>
