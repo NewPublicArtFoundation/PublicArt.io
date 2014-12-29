@@ -28,7 +28,7 @@ class InstagramPollController < ApplicationController
     #   changed_tag = params[:object_id]
     #   store_tag_response changed_tag
     # end
-    puts 'We got this #{params[:object]}'
+    puts 'We got this ' + params[:object]
     return true
   end
 
