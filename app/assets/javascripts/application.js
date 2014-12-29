@@ -11,10 +11,7 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
-//
 //= require foundation
-//= require GP-current-location
-//
 //= require turbolinks
 //= require_tree .
 
