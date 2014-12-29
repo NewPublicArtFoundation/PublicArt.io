@@ -19,7 +19,7 @@ class InstagramPollController < ApplicationController
   end
 
   def realtime_response
-    # create
+    create
     render :nothing => true, :status => 200, :content_type => 'text/html'
   end
 
