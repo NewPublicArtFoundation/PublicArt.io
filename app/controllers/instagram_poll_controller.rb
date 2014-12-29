@@ -1,4 +1,6 @@
 class InstagramPollController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => [:realtime_response]
+
 
   def oauth_connect
     redirect_to Instagram.authorize_url(:redirect_uri => ENV['INSTAGRAM_CALLBACK_URL'])
