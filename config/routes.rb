@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # Instagram Connect
   get 'api/instagram/oauth/connect' => 'api#instagram_oauth_connect'
   get 'api/instagram/callback' => 'api#instagram_oauth_callback'
+  get 'api/instagram/callback/realtime' => 'api#instagram_realtime_response', :as => 'POST'
   get 'api/instagram/callback/realtime' => 'api#instagram_realtime_callback'
 
 

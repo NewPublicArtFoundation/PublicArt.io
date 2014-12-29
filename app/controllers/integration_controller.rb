@@ -16,6 +16,10 @@ class IntegrationController < ApplicationController
   def instagramResponse
   end
 
+  def instagram_realtime_response
+    render :nothing => true, :status => 200, :content_type => 'text/html'
+  end
+
   def flickr
   end
 end
