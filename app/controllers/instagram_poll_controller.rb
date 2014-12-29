@@ -22,19 +22,20 @@ class InstagramPollController < ApplicationController
     puts 'We got this: ' + params.inspect
     if params['_json'] != nil
       if params['_json'][0] != nil
-        puts 'index 0 (inspect): ' + params['_json'][0].inspect
-        puts 'object_id (str): ' + params['_json'][0]['object_id']
+        index_zero = params['_json'][0]
+        object_id = params['_json'][0]['object_id']
+        puts 'index 0 (inspect): ' + index_zero
+        puts 'object_id (str): ' + object_id
+
+        create index_zero
       end
     end
-    # puts 'object_id: ' + params['_json'][0]['object_id']
-
-    # create
     render :nothing => true, :status => 200, :content_type => 'text/html'
   end
 
-  def create
-    if params[:object] == 'tag'
-      changed_tag = params[:object_id]
+  def create index_zero
+    if index_zero[:object] == 'tag'
+      changed_tag = index_zero[:object_id]
       store_tag_response changed_tag
     end
     return true
