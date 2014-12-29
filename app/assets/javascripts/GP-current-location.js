@@ -31,20 +31,20 @@ GP.postToGoogle = function(lon, lat) {
     var field1 = lat;
     var field2 = lon;
 
-    $.ajax({
-        url: "https://docs.google.com/forms/d/19TmdAgos0j48ApewymWOgrept-WyeVdQy6BSw_J4HPw/formResponse",
-        data: { "entry.1522668461": field1, "entry.2127807238": field2},
-        type: "POST",
-        dataType: "xml",
-        statusCode: {
-            0: function() {
-                //Success message
-            },
-            200: function() {
-                //Success Message
-            }
-        }
-    });
+    // $.ajax({
+    //     url: "https://docs.google.com/forms/d/19TmdAgos0j48ApewymWOgrept-WyeVdQy6BSw_J4HPw/formResponse",
+    //     data: { "entry.1522668461": field1, "entry.2127807238": field2},
+    //     type: "POST",
+    //     dataType: "xml",
+    //     statusCode: {
+    //         0: function() {
+    //             //Success message
+    //         },
+    //         200: function() {
+    //             //Success Message
+    //         }
+    //     }
+    // });
 }
 
 $('.GP_get_location').on('click', function(e){
