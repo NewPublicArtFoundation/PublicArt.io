@@ -19,12 +19,12 @@ class InstagramPollController < ApplicationController
   end
 
   def realtime_response
+    puts 'We got this: ' + params.inspect
     create
     render :nothing => true, :status => 200, :content_type => 'text/html'
   end
 
   def create
-    puts 'We got this: ' + params.inspect
     if params[:object] == 'tag'
       changed_tag = params[:object_id]
       store_tag_response changed_tag
