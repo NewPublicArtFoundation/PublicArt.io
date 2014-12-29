@@ -13,6 +13,8 @@
 
 <% if !content_for?(:is_ios) %>
   <%= render 'layouts/topnav' %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 <% end %>
 
 <%= yield %>
