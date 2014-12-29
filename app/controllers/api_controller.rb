@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => [:instagram_realtime_response]
 
   def instagram_oauth_connect
     redirect_to Instagram.authorize_url(:redirect_uri => ENV['INSTAGRAM_CALLBACK_URL'])
