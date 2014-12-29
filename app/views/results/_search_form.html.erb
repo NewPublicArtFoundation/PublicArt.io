@@ -1,0 +1,19 @@
+
+<% if !params.has_key?(:search) %>
+  <div class="large-8 medium-10 column large-centered medium-centered">
+    <h3>Enter a place to find nearby graffiti</h3>
+    <p>You can search by city names, address, or coordinates</p>
+    <%= form_tag find_path, :method => :get do %>
+      <div class="row">
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter location here', :class => 'large-12 column' %>
+      </div>
+      <div class="row">
+        <a href="#" class="button large-12 GP_get_location button column">Get Current Location</a>
+      </div>
+      <div class="row">
+          <%= submit_tag "Search", :name => nil, :class => 'alert button large-12 column' %>
+      </div>
+    <% end %>
+
+  </div>
+<% end %>
