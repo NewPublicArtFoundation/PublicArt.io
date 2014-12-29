@@ -20,8 +20,10 @@ class InstagramPollController < ApplicationController
 
   def realtime_response
     puts 'We got this: ' + params.inspect
-    if params['_json'][0] != nil
-      puts 'index 0: ' + params['_json'][0]
+    if params['_json'] != nil
+      if params['_json'][0] != nil
+        puts 'index 0: ' + params['_json'][0]
+      end
     end
     # puts 'object_id: ' + params['_json'][0]['object_id']
 
