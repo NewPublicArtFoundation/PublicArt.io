@@ -70,6 +70,7 @@ class InstagramPollController < ApplicationController
 
     tags.each do |tag|
       art = process_tag tags, tag
+      puts 'Art is: ' + art.inspect
       if art["longitude"] != nil
         @arts << art
       end
