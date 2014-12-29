@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   get 'privacy.html' =>     'pages#privacy'
 
   # Instagram Connect
-  get 'api/instagram/oauth/connect' => 'api#instagram_oauth_connect'
-  get 'api/instagram/callback' => 'api#instagram_oauth_callback'
-  match 'api/instagram/callback/realtime' => 'api#instagram_realtime_response', via: :post
-  get 'api/instagram/callback/realtime' => 'api#instagram_realtime_callback'
+  get   'api/instagram/oauth/connect' =>      'instagram_poll#instagram_oauth_connect'
+  get   'api/instagram/callback' =>           'instagram_poll#instagram_oauth_callback'
+  match 'api/instagram/callback/realtime' =>  'instagram_poll#instagram_realtime_response', via: :post
+  get   'api/instagram/callback/realtime' =>  'instagram_poll#instagram_realtime_callback'
 
 
   resources :instagram_arts, only: [:show]
