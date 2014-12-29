@@ -7,7 +7,7 @@
           <li class="name">
             <h1><%= link_to root_path do %>
               <b>
-                <%= render 'layouts/logo_small' %>
+                <%#= render 'layouts/logo_small' %>
               </b>
             <% end %></h1>
           </li>
@@ -39,11 +39,7 @@
                 <% end %>
               </li>
             <% else %>
-              <li class="no-span login">
-                <%= link_to about_path, :class=>'no-right-pad' do %>
-                  <span>About</span>
-                <% end %>
-              </li>
+              <%= render 'layouts/topnav' %>
               <li class="no-span login">
                 <%= link_to new_user_session_path, :class=>'no-right-pad' do %>
                   <span>Sign In</span>
