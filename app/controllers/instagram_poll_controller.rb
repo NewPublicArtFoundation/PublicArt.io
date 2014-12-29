@@ -70,7 +70,9 @@ class InstagramPollController < ApplicationController
 
     tags.each do |tag|
       art = process_tag tags, tag
-      @arts << art
+      if art["longitude"] != nil
+        @arts << art
+      end
     end
 
     return @arts
@@ -111,8 +113,8 @@ class InstagramPollController < ApplicationController
 
     if(tag["location"] != nil)
       art["location_name"]  = tag["location"]["name"]
-      art["location_lon"]   = tag["location"]["longitude"]
-      art["location_lat"]   = tag["location"]["latitude"]
+      art["longitude"]   = tag["location"]["longitude"]
+      art["latitude"]   = tag["location"]["latitude"]
       art["location_id"]    = tag["location"]["id"]
     else
       art["location_name"]          = nil
