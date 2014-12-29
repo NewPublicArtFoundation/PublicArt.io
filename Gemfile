@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.2'
 gem 'jbuilder', '~> 2.0'
 gem 'spring',        group: :development
+gem 'devise'
 
 # Frontend
 gem 'foundation-rails'
