@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   # Instagram Connect
   get 'api/instagram/oauth/connect' => 'api#instagram_oauth_connect'
   get 'api/instagram/callback' => 'api#instagram_oauth_callback'
-  match '/api/instagram/callback/realtime' => 'api#instagram_realtime_response', via: :post
-  get '/api/instagram/callback/realtime' => 'api#instagram_realtime_callback'
+  match 'api/instagram/callback/realtime' => 'api#instagram_realtime_response', via: :post
+  get 'api/instagram/callback/realtime' => 'api#instagram_realtime_callback'
 
 
   resources :instagram_arts, only: [:show]

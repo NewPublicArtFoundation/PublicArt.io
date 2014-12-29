@@ -13,9 +13,11 @@ class ApiController < ApplicationController
   def instagram_realtime_callback
     if params["hub.challenge"]
       render :text => params["hub.challenge"]
-    else
     end
   end
 
+  def instagram_realtime_response
+    render :nothing => true, :status => 200, :content_type => 'text/html'
+  end
 
 end
