@@ -59,7 +59,7 @@ class InstagramPollController < ApplicationController
     arts.each do |art|
       result = InstagramArt.where(:image_url=>art['image_url'])
       if(result == [])
-        InstagramArt.build(art)
+        InstagramArt.create(art)
       end
     end
   end
