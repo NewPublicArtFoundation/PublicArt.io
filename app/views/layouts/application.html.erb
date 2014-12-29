@@ -11,12 +11,32 @@
 
 <% if !content_for?(:is_ios) %>
   <%= render 'layouts/topnav' %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 <% end %>
 
-<%= yield %>
+<div class="body-to">
+  <% if !content_for?(:is_ios) %>
+    <% flash.each do |name, msg| %>
 
+      <% if msg.class == Array %>
+        <% msg.each do |message| %>
+          <div class="notice-bar">
+            <div data-alert class="alert-box info radius">
+            <%= content_tag :div, message, :id => "flash_#{name}" %>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="notice-bar">
+          <div data-alert class="alert-box info radius">
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% end %>
+  <%= yield %>
+</div>
   <%= render 'layouts/google_analytics' %>
 
 </body>
