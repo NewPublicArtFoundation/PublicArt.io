@@ -17,27 +17,31 @@ class InstagramPollController < ApplicationController
   end
 
   def realtime_response
+    create
     render :nothing => true, :status => 200, :content_type => 'text/html'
   end
 
   def create
-    store_tag_response
+    if params[:object] == 'tag'
+      changed_tag = params[:object_id]
+      store_tag_response changed_tag
+    end
     return true
   end
 
-  def store_tag_response
-    tag_name = "streetart"
+  def store_tag_response changed_tag
+    tag_name = changed_tag
     options = {}
+    @arts = []
     if(InstagramArt.last() != nil)
       last_id = InstagramArt.last().image_id
       options = {
-        :next_min_id => last_id.to_i
+        :min_tag_id => last_id.to_i
       }
+      tags = Instagram.tag_recent_media(tag_name, options)
+      @arts = parse_tags tags
+      create_pages_using_tags @arts
     end
-    tags = Instagram.tag_recent_media(tag_name, options)
-    @arts = ['1', '2', '3']
-    @arts = parse_tags tags
-    create_pages_using_tags @arts
   end
 
   def create_pages_using_tags arts
