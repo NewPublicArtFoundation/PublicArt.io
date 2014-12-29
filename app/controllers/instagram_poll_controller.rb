@@ -24,7 +24,7 @@ class InstagramPollController < ApplicationController
       if params['_json'][0] != nil
         index_zero = params['_json'][0]
         object_id = params['_json'][0]['object_id']
-        puts 'index 0 (inspect): ' + index_zero
+        puts 'index 0 (inspect): ' + index_zero.inspect
         puts 'object_id (str): ' + object_id
 
         create index_zero
@@ -35,8 +35,8 @@ class InstagramPollController < ApplicationController
 
   def create index_zero
     if index_zero[:object] == 'tag'
-      changed_tag = index_zero[:object_id]
-      store_tag_response changed_tag
+      tag_name = index_zero[:object_id]
+      store_tag_response tag_name
     end
     return true
   end
