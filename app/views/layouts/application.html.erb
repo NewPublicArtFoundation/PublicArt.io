@@ -3,6 +3,7 @@
 <head>
   <% if !content_for?(:is_ios) %>
     <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <% end %>
 
   <%= render 'layouts/meta_data' %>
@@ -15,29 +16,28 @@
 
 <div class="body-to">
   <% if !content_for?(:is_ios) %>
-    <% flash.each do |name, msg| %>
-
-      <% if msg.class == Array %>
-        <% msg.each do |message| %>
-          <div class="notice-bar">
+    <div class="notice-bar large-12 medium-12">
+      <% flash.each do |name, msg| %>
+        <% if msg.class == Array %>
+          <% msg.each do |message| %>
             <div data-alert class="alert-box info radius">
-            <%= content_tag :div, message, :id => "flash_#{name}" %>
+              <%= content_tag :div, message, :id => "flash_#{name}" %>
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
+        <% else %>
+          <div data-alert class="alert-box info radius">
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
             <a href="#" class="close">&times;</a>
           </div>
         <% end %>
-      <% else %>
-        <div class="notice-bar">
-          <div data-alert class="alert-box info radius">
-            <%= content_tag :div, msg, :id => "flash_#{name}" %>
-          <a href="#" class="close">&times;</a>
-        </div>
       <% end %>
-    <% end %>
+    </div>
 
   <% end %>
   <%= yield %>
 </div>
-  <%= render 'layouts/google_analytics' %>
+<%= render 'layouts/google_analytics' %>
 
 </body>
 </html>
