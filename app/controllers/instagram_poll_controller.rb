@@ -24,15 +24,15 @@ class InstagramPollController < ApplicationController
   end
 
   def create
-    if params[:object] == 'tag'
-      changed_tag = params[:object_id]
-      store_tag_response changed_tag
-    end
+    # if params[:object] == 'tag'
+    #   changed_tag = params[:object_id]
+    #   store_tag_response changed_tag
+    # end
+    puts 'We got this #{params[:object]}'
     return true
   end
 
-  def store_tag_response changed_tag
-    tag_name = changed_tag
+  def store_tag_response tag_name
     options = {}
     @arts = []
     if(InstagramArt.last() != nil)
