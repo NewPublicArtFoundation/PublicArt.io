@@ -9,7 +9,7 @@
 <script>
 
   var data = {
-    labels: <%= all_days.to_json %>,
+    labels: <%= all_days.to_json.to_s.html_safe %>,
     datasets: [
         {
             label: "My First dataset",
@@ -19,7 +19,7 @@
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: <%= all_rates.to_json %>
+            data: <%= all_rates.to_json.to_s.html_safe %>
         }
     ]
 };
