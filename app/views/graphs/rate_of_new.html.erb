@@ -1,7 +1,3 @@
 <% @per_day.each do |day_hash| %>
-  <% day = YAML::load(day_hash) %>
-  <tr>
-    <td><%= day.day_per_count %></td>
-    <td><%= day.count_per_day %></td>
-  </tr>
+  <%= day_hash.inspect %>
 <% end %>
