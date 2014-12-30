@@ -1,12 +1,18 @@
 class GraphsController < ApplicationController
 
+  def go_through_year year
+
+  end
+
   def check_rate_of_hash day_to_check
     day = {}
-    time_before = day_to_check
-    time = time.advance 86400
-    date = Time.zone.now.beginning_of_day.ago 86400
-    day["count_per_day"] = InstagramArt.where(:created_at => time_before.strftime("%F")..time.strftime("%F")).count
-    day["day_per_count"] = time_before
+    date = day_to_check
+    date_after = time + 1.day
+    day_of = date.strftime("%F")
+    day_after = date_after.strftime("%F")
+    day["count_per_day"] = InstagramArt.where(created_at: day_after..day_of).count
+    day["day_per_count"] = day_to_check
+    puts day.inspect
     return day
   end
 
