@@ -1,12 +1,26 @@
-<script>
-data = [
+<% all_days = [] %>
+<% all_rates = [] %>
 <% @rates.each do |rate| %>
-  <% day_of = YAML::load(rate.day_of) %>
-  {
-    "count": <%= day_of['count_per_day'] %>,
-    "day": <%= day_of['day_per_count'] %>
-  },
+  <% all_days << day_of['day_per_count'] %>
+  <% all_rates << day_of['count_per_day'] %>
 <% end %>
-  {}
-];
+
+<script>
+
+  var data = {
+    labels: <%= all_days.to_json %>,
+    datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: <%= all_rates.to_json %>
+        }
+    ]
+};
+
 </script>
