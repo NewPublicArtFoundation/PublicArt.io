@@ -1,2 +1,6 @@
-<% @count_per_day %>
-<% @day_per_count %>
+<% @per_day.each do |day| %>
+  <tr>
+    <td><%= day.day_per_count %></td>
+    <td><%= day.count_per_day %></td>
+  </tr>
+<% end %>
