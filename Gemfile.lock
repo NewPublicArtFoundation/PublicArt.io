@@ -200,6 +200,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sitemap_generator (5.0.5)
+      builder
     slop (3.6.0)
     spork (1.0.0rc4)
     spork-rails (4.0.0)
@@ -268,6 +270,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   sdoc (~> 0.4.0)
+  sitemap_generator
   spork-rails (= 4.0.0)
   spring
   sqlite3

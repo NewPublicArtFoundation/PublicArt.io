@@ -31,6 +31,9 @@ gem 'geocoder'
 # Analytics
 gem 'newrelic_rpm'
 
+# Sitemap
+# gem 'sitemap_generator'
+
 # Caching
 # gem 'dalli'
 
