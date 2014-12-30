@@ -7,7 +7,6 @@
 <% end %>
 
 <script>
-
   var data = {
     labels: <%= all_days.to_json.to_s.html_safe %>,
     datasets: [
@@ -23,5 +22,11 @@
         }
     ]
 };
+</script>
 
+<canvas id="myChart" width="600" height="400"></canvas>
+
+<script>
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myLineChart = new Chart(ctx).Line(data, options);
 </script>
