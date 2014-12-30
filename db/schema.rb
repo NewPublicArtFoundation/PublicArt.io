@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229161041) do
+ActiveRecord::Schema.define(version: 20141230043403) do
 
   create_table "accesskeys", force: true do |t|
     t.string   "client_id"
@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(version: 20141229161041) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rate_of_hashes", force: true do |t|
+    t.text     "day_of"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
