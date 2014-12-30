@@ -1,7 +1,20 @@
-
-
-
-<canvas id="myChart" width="600" height="400"></canvas>
+<div class="row">
+  <h3>Public Art sources</h3>
+  <div class="large-12 column tag-count-graph">
+    <canvas id="myChart" width="600" height="400"></canvas>
+  </div>
+</div>
+<div class="row">
+  <div class="large-4 column medium-4">
+    <h4>% Graffiti</h4>
+  </div>
+  <div class="large-4 column medium-4">
+    <h4>% Geotagged</h4>
+  </div>
+  <div class="large-4 column medium-4">
+    <h4>% Growth</h4>
+  </div>
+</div>
 
 <script>
   var data = {
@@ -35,7 +48,6 @@
     datasetFill : true
   };
 </script>
-
 
 <script>
   var ctx = document.getElementById("myChart").getContext("2d");
