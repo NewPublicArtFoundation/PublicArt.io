@@ -1,4 +1,12 @@
-<% @per_day.each do |day_hash| %>
-  <% day = YAML::load(day_hash.day_of) %>
-  <%= day.inspect %>
+<script>
+data = [
+<% @rates.each do |rate| %>
+  <% day_of = YAML::load(rate.day_of) %>
+  {
+    "count": <%= day_of['count_per_day'] %>,
+    "day": <%= day_of['day_per_count'] %>
+  },
 <% end %>
+  {}
+];
+</script>
