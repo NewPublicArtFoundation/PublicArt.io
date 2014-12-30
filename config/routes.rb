@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'integration/instagram'
   get 'integration/flickr'
   get 'find'  => 'instagram_arts#indexlocation'
+  get 'status/rate' => 'graphs#rate_of_new'
   # concern :paginatable do
   #   get '(page/:page)', :action => :index, :on => :collection, :as => ''
   # end
