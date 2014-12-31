@@ -11,6 +11,11 @@ class InstagramArtsController < ApplicationController
     redirect_to find_url
   end
 
+  def show_web
+    uid = params[:id]
+    @instagram_arts = InstagramArt.find(uid)
+  end
+
   # GET /arts
   # GET /arts.json
   def indexlocation

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   # Web Views
   get 'p/'    => 'instagram_arts#redirect_to_index'
-  get 'p/:id' => 'instagram_arts#show'
+  get 'p/:id' => 'instagram_arts#show_web'
   get 'find'  => 'instagram_arts#indexlocation'
 
   # iOS Views
