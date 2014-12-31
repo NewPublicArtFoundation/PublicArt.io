@@ -1,7 +1,8 @@
 class ArtsController < ApplicationController
   def show
     uid = params[:id]
-    @graffiti = InstagramArt.where(:uid => uid)
+    art = InstagramArt.where(:uid => uid)
+    @graffiti = art.first
   end
 
   def index
