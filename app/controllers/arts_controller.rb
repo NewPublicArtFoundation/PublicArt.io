@@ -32,9 +32,8 @@ class ArtsController < ApplicationController
               :iconSize => [50, 50]
           }
       }
-      map_datas << map_data
       puts "Got: " + i.to_s
-      g = Geodata.new(:purpose => art.uid, :content => map_data)
+      g = Geodata.new(:purpose => art.uid, :content => map_data.to_json)
       g.save
     end
     puts 'FINISHED!'
