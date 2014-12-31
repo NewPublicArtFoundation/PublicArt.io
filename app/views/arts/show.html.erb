@@ -1,0 +1,37 @@
+<% if(@graffiti.image_url != nil) %>
+  <% @background_image = @graffiti.image_url %>
+<% else %>
+  <% @background_image = @graffiti.images %>
+<% end %>
+
+<% if @background_image != nil %>
+  <div class="large-12 hero-image-slice" style="background-image: url('<%= @background_image %>'); ">
+    <h1 class="text-center"><%= @graffiti.name %></h1>
+  </div>
+<% end %>
+<hr style="margin-top:0px; padding-top: 0px;">
+<div class="row">
+  <div class="large-6 column">
+    <div>
+      <% if @location != nil %>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=600x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
+      <% end %>
+    </div>
+    <h3>Description</h3>
+    <p>
+      <%= @graffiti.description %>
+    </p>
+    <% if @graffiti.attribution != nil %>
+    Source: <%= @graffiti.attribution %>
+    <% end %>
+  </div>
+  <div class="large-6 column">
+    <h3>Comments</h3>
+    <%= render "comments/comments" %>
+    <%= render "comments/form" %>
+  </div>
+</div>
+
+
+<%#= link_to 'Edit', edit_graffiti_path(@graffiti) %>
+<%= link_to 'Back', graffitis_path, :class=>'button secondary small' %>

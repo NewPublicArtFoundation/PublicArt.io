@@ -1,0 +1,2 @@
+module ArtsHelper
+end
