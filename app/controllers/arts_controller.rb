@@ -9,8 +9,14 @@ class ArtsController < ApplicationController
     @graffiti = InstagramArt.page params[:page]
   end
 
+  def geojson_total
+    @count = Geojson.all.count
+    return :json => @count
+  end
+
   def geojson
     @geojson = Geojson.find(params[:id])
+    return :json => @geojson
   end
 
   def map_of_all

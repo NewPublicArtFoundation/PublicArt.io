@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'v/'    => 'arts#index', :as => :arts_index
   get 'v/:id' => 'arts#show'
   get 'find'  => 'arts#map_of_all'
+  get 'geojson/total' => 'arts#geojson_total'
   get 'geojson/:id' => 'arts#geojson'
 
   # iOS Views
