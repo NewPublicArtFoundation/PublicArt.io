@@ -7,6 +7,10 @@ class InstagramArtsController < ApplicationController
     @instagram_arts = InstagramArt.page params[:page]
   end
 
+  def redirect_to_index
+    redirect_to find_url
+  end
+
   # GET /arts
   # GET /arts.json
   def indexlocation

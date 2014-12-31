@@ -5,12 +5,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
-  #
-
   get 'api/instagram'
   get 'integration/instagram'
   get 'integration/flickr'
-  get 'find'  => 'instagram_arts#indexlocation'
   get 'status/rate' => 'graphs#rate_of_new'
 
   # Static Pages
@@ -27,13 +24,10 @@ Rails.application.routes.draw do
   match 'api/instagram/callback/realtime' =>  'instagram_poll#realtime_response', via: :post
   get   'api/instagram/callback/realtime' =>  'instagram_poll#realtime_callback'
 
-  # concern :paginatable do
-  #   get '(page/:page)', :action => :index, :on => :collection, :as => ''
-  # end
-  # resources :instagram_arts, :concerns => :paginatable
-
   # Web Views
   get 'p/:id' => 'instagram_arts#show'
+  get 'p/' => 'instagram_arts#redirect_to_index'
+  get 'find'  => 'instagram_arts#indexlocation'
 
   # iOS Views
   resources :instagram_arts, only: [:show]
