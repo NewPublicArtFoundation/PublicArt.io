@@ -35,6 +35,7 @@ class ArtsController < ApplicationController
       map_datas << map_data
       puts "Got: " + i.to_s
     end
+    puts 'FINISHED!'
     g = Geodata.new(:purpose => '', :content => map_datas.to_json)
     g.save
   end
