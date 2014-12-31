@@ -6,7 +6,7 @@
 
 <% if @background_image != nil %>
   <div class="large-12 hero-image-slice text-center" style="background-repeat: no-repeat; background-postion: center center; background-image: url('<%= @background_image %>'); ">
-    <%= image_tag @background_image %>
+    <%= image_tag @background_image, :style=>'visibility: hidden;' %>
   </div>
 <% end %>
 <hr style="margin-top:0px; padding-top: 0px;">
