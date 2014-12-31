@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230043403) do
+ActiveRecord::Schema.define(version: 20141231003318) do
 
   create_table "accesskeys", force: true do |t|
     t.string   "client_id"
@@ -49,7 +49,10 @@ ActiveRecord::Schema.define(version: 20141230043403) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address"
+    t.string   "uid"
   end
+
+  add_index "instagram_arts", ["uid"], name: "index_instagram_arts_on_uid", unique: true
 
   create_table "locations", force: true do |t|
     t.string   "address"
