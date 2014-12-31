@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
+
+  # Authorization
   resources :accesskeys
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+  #
+
   get 'api/instagram'
   get 'integration/instagram'
   get 'integration/flickr'
   get 'find'  => 'instagram_arts#indexlocation'
   get 'status/rate' => 'graphs#rate_of_new'
-  # concern :paginatable do
-  #   get '(page/:page)', :action => :index, :on => :collection, :as => ''
-  # end
+
+  # Static Pages
   get 'thanks' =>           'pages#thankyou'
   get 'explain' =>          'pages#explain'
   get 'about' =>            'pages#about'
@@ -23,9 +27,16 @@ Rails.application.routes.draw do
   match 'api/instagram/callback/realtime' =>  'instagram_poll#realtime_response', via: :post
   get   'api/instagram/callback/realtime' =>  'instagram_poll#realtime_callback'
 
-
-  resources :instagram_arts, only: [:show]
+  # concern :paginatable do
+  #   get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  # end
   # resources :instagram_arts, :concerns => :paginatable
+
+  # Web Views
+  get 'p/:id' => 'instagram_arts#show'
+
+  # iOS Views
+  resources :instagram_arts, only: [:show]
   get 'slide' => 'instagram_arts#iosview'
   get 'instagram_arts/:id/image' => 'instagram_arts#image'
   root 'pages#home_web'
