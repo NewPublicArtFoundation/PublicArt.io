@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   # Web Views
   get 'v/'    => 'arts#index', :as => :arts_index
   get 'v/:id' => 'arts#show'
-  get 'find'  => 'instagram_arts#indexlocation'
+  get 'find'  => 'arts#map_of_all'
 
   # iOS Views
   resources :instagram_arts, only: [:show]

@@ -9,6 +9,9 @@ class ArtsController < ApplicationController
     @graffiti = InstagramArt.page params[:page]
   end
 
+  def map_of_all
+  end
+
   def get_aggregate_map_data
     map_datas = []
     i = 0
