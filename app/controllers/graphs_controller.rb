@@ -34,8 +34,8 @@ class GraphsController < ApplicationController
 
   def rate_of_new
     @rates = RateOfHash.all
-    all_days = []
-    all_rates = []
+    @all_days = []
+    @all_rates = []
     @rates.each do |rate|
       day_of = YAML::load(rate.day_of)
       @all_days << day_of['day_per_count']
