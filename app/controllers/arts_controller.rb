@@ -11,12 +11,12 @@ class ArtsController < ApplicationController
 
   def geojson_total
     @count = Geodata.all.count
-    return :json => @count
+    render :json => @count
   end
 
   def geojson
     @geojson = Geodata.find(params[:id])
-    return :json => @geojson
+    render :json => @geojson
   end
 
   def map_of_all
