@@ -25,8 +25,8 @@ Rails.application.routes.draw do
   get   'api/instagram/callback/realtime' =>  'instagram_poll#realtime_callback'
 
   # Web Views
+  get 'p/'    => 'instagram_arts#redirect_to_index'
   get 'p/:id' => 'instagram_arts#show'
-  get 'p/' => 'instagram_arts#redirect_to_index'
   get 'find'  => 'instagram_arts#indexlocation'
 
   # iOS Views
