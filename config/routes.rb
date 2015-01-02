@@ -28,13 +28,13 @@ Rails.application.routes.draw do
   # Web Views
   get 'v/'    => 'arts#index', :as => :arts_index
   get 'v/:id' => 'arts#show'
-  get 'find'  => 'arts#map_of_all'
   get 'geojson/total' => 'arts#geojson_total'
   get 'geojson/:id' => 'arts#geojson'
 
   # iOS Views
   resources :instagram_arts, only: [:show]
   get 'slide' => 'instagram_arts#iosview'
+  get 'find'  => 'instagram_arts#indexlocation'
   get 'instagram_arts/:id/image' => 'instagram_arts#image'
   root 'pages#home_web'
 
