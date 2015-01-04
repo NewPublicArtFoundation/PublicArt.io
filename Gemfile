@@ -7,6 +7,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'spring',        group: :development
 gem 'unicorn'
 gem 'rack-timeout'
+gem 'sidekiq'
 
 # Frontend
 gem 'foundation-rails'
