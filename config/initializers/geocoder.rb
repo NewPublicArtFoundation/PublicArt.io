@@ -2,7 +2,7 @@ Geocoder.configure(
   # geocoding options
   # :timeout      => 5,           # geocoding service timeout (secs)
   # :lookup       => :dstk,     # name of geocoding service (symbol)
-  :host         => ENV['DSTK_URL']
+  # :host         => ENV['DSTK_URL']
   # :language     => :en,         # ISO-639 language code
   # :use_https    => false,       # use HTTPS for lookup requests? (if supported)
   # :http_proxy   => ENV['QUOTAGUARD_URL'],         # HTTP proxy server (user:pass@host:port)
