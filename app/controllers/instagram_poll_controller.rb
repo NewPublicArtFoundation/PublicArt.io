@@ -28,8 +28,6 @@ class InstagramPollController < ApplicationController
         puts 'object_id (str): ' + object_id
 
         InstagramImageWorker.create(index_zero)
-
-
       end
     end
     render :nothing => true, :status => 200, :content_type => 'text/html'
