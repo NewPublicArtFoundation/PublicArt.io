@@ -1,7 +1,7 @@
 class InstagramImageWorker
   include Sidekiq::Worker
 
-  def create index_zero
+  def self.create index_zero
     if index_zero[:object] == 'tag'
       tag_name = index_zero[:object_id]
       store_tag_response tag_name
@@ -9,7 +9,7 @@ class InstagramImageWorker
     return true
   end
 
-  def store_tag_response tag_name
+  def self.store_tag_response tag_name
     options = {}
     @arts = []
     if(InstagramArt.last() != nil)
@@ -23,7 +23,7 @@ class InstagramImageWorker
     end
   end
 
-  def create_pages_using_tags arts
+  def self.create_pages_using_tags arts
     arts.each do |art|
       result = InstagramArt.where(:image_url=>art['image_url'])
       if(result == [])
@@ -33,7 +33,7 @@ class InstagramImageWorker
   end
 
   # Used by store_tag_response
-  def parse_tags tags
+  def self.parse_tags tags
     @arts = []
 
     tags.each do |tag|
@@ -48,7 +48,7 @@ class InstagramImageWorker
   end
 
   # Used by parse_tags
-  def process_tag tags, tag
+  def self.process_tag tags, tag
     art = {}
 
     # art["everything"] = tag
@@ -93,7 +93,7 @@ class InstagramImageWorker
   end
 
 
-  def get_tag
+  def self.get_tag
     tag_name = "streetart"
     last_called_id = ""
     client = Instagram.client(:access_token => session[:access_token])
