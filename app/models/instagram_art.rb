@@ -3,6 +3,17 @@ class InstagramArt < ActiveRecord::Base
   after_validation :geocode, :if => :address_changed?
   before_create :set_uid
 
+  def self.remove_flagged arr
+    arr.each do |a|
+      if !InstagramArt.where(:id => a).empty?
+        i = InstagramArt.find(a)
+        i.flagged = true
+        puts "Flagged image " + a.to_s
+        i.save
+      end
+    end
+  end
+
   protected
     def set_uid
       # This only works before_create obviously, otherwise it would
