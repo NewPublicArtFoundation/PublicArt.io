@@ -32,6 +32,7 @@ gem 'geocoder'
 
 # Analytics
 gem 'newrelic_rpm'
+gem 'rollbar', '~> 1.3.1'
 
 # Sitemap
 # gem 'sitemap_generator'
