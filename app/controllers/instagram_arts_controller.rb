@@ -41,7 +41,7 @@ class InstagramArtsController < ApplicationController
     end
   end
 
-  def index_json params, @instagram_arts, @search_url, @result_count, @result_coordinates
+  def index_json(params, @instagram_arts, @search_url, @result_count, @result_coordinates)
     len = @instagram_arts.length
     if(params.has_key?(:page))
       page_count = params[:page].to_i
