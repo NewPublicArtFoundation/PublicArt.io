@@ -1,45 +1,35 @@
-  <div id="topnavwrapper">
-      <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name">
-            <h1><%= link_to root_path do %>
-              <b>
-                <%= render 'layouts/logo_small' %>
-              </b>
-            <% end %></h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-        </ul>
-        <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <%= render 'layouts/nav_links' %>
-          </ul>
-          <ul class="right">
-            <% if signed_in? %>
-              <li class="no-span login">
-                <%= link_to edit_user_registration_path, :class=>'no-right-pad' do %>
-                  <span>Profile</span>
-                <% end %>
-              </li>
-              <li class="no-span login">
-                <%= link_to destroy_user_session_path, :method => :delete do %>
-                  <span>Logout</span>
-                <% end %>
-              </li>
-            <% else %>
-              <li class="no-span login">
-                <%= link_to new_user_session_path, :class=>'no-right-pad' do %>
-                  <span>Sign In</span>
-                <% end %>
-              </li>
-              <li class="no-span login no-right-pad">
-                <%= link_to new_user_registration_path, :class=>'no-right-pad' do %>
-                  <span>Sign Up</span>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </section>
-      </nav>
-  </div>
+<div class="call-to-action">
+<a href="https://itunes.apple.com/us/app/public-art/id936484924" class="button">DOWNLOAD NOW</a>
+</div>
+<div class="topnav fr text-right">
+  <ul class="menu inline-list">
+    <%= render 'layouts/nav_links' %>
+    <% if signed_in? %>
+      <li class="no-span login">
+        <%= link_to edit_user_registration_path, :class=>'no-right-pad' do %>
+          <span>Profile</span>
+        <% end %>
+      </li>
+      <li class="no-span login">
+        <%= link_to destroy_user_session_path, :method => :delete do %>
+          <span>Logout</span>
+        <% end %>
+      </li>
+    <% else %>
+      <li class="no-span login">
+        <%= link_to new_user_session_path, :class=>'no-right-pad' do %>
+          <span>Sign In</span>
+        <% end %>
+      </li>
+      <li class="no-span login no-right-pad">
+        <%= link_to new_user_registration_path, :class=>'no-right-pad' do %>
+          <span>Sign Up</span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<!-- End topnav -->
+
+
+
