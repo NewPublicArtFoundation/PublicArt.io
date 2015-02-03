@@ -50,7 +50,7 @@ class InstagramArtsController < ApplicationController
       page_count = 1
       page_range_low = 1
     end
-    items = get_reponse_items
+    items = get_response_items
     result = {}
     result[:next] = @search_url.html_safe
     result[:count] = @result_count
@@ -73,11 +73,10 @@ class InstagramArtsController < ApplicationController
       art_coordinates = [instagram_art.latitude, instagram_art.longitude]
       distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates)
       item = {
-        {
-          type: "Feature",
-          distance: distance_apart.round(2),
-          discovered: instagram_art.created_at.iso8601,
-          geometry: {
+        type: "Feature",
+        distance: distance_apart.round(2),
+        discovered: instagram_art.created_at.iso8601,
+        geometry: {
           type: "Point",
           coordinates: [ instagram_art.latitude ,  instagram_art.longitude ]
         },
