@@ -13,4 +13,7 @@ class PagesController < ApplicationController
 
   def thankyou
   end
+
+  def partnerships
+  end
 end

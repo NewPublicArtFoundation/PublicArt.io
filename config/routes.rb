@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'status/rate' => 'graphs#rate_of_new'
 
   # Static Pages
+  get 'partnerships' =>     'pages#partnerships'
   get 'thanks' =>           'pages#thankyou'
   get 'explain' =>          'pages#explain'
   get 'about' =>            'pages#about'
