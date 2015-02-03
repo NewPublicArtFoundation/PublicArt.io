@@ -33,8 +33,7 @@ class InstagramArtsController < ApplicationController
           render :indexlocation
         }
         format.json {
-          the_params = params
-          data = index_json(the_params, @instagram_arts, @search_url, @result_count, @result_coordinates)
+          data = index_json
           render json: data,
                  :content_type => 'application/json'
         }
@@ -42,7 +41,7 @@ class InstagramArtsController < ApplicationController
     end
   end
 
-  def index_json(the_params, @instagram_arts, @search_url, @result_count, @result_coordinates)
+  def index_json
     len = @instagram_arts.length
     if(params.has_key?(:page))
       page_count = params[:page].to_i
@@ -67,7 +66,7 @@ class InstagramArtsController < ApplicationController
     return response
   end
 
-  def get_response_items @instagram_arts, @result_coordinates
+  def get_response_items
     items = []
 
     @instagram_arts.each_with_index do |instagram_art, index|
