@@ -32,7 +32,8 @@
           "description": "<%= instagram_art.tags %>",
           "count": <%= index %>,
           "id": "<%= instagram_art.id %>"
-        }
+        },
+        "discovered": "<%= instagram_art.created_at %>"
       }<% if index+1 != len %><%= ',' %><% end %>
     <% end %>
   ]
