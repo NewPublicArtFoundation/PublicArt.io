@@ -33,7 +33,7 @@
           "count": <%= index %>,
           "id": "<%= instagram_art.id %>"
         },
-        "discovered": "<%= instagram_art.created_at %>"
+        "discovered": "<%= instagram_art.created_at.iso8601 %>"
       }<% if index+1 != len %><%= ',' %><% end %>
     <% end %>
   ]
