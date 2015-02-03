@@ -51,16 +51,16 @@ class InstagramArtsController < ApplicationController
       page_range_low = 1
     end
     items = get_reponse_items
+    result = {}
+    result[:next] = @search_url.html_safe
+    result[:count] = @result_count
+    result[:low] = page_range_low
+    result[:high] = page_range_low + 50
     response = {
       search_term: URI.encode(params[:search]),
       page_number: page_count,
       page_total: @instagram_arts.total_pages,
-      result: {
-        next: @search_url.html_safe,
-        count: @result_count,
-        low: page_range_low,
-        high: page_range_low + 50
-      },
+      result: result,
       data: items
     }
     return response
