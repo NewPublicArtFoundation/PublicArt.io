@@ -1,3 +1,153 @@
-// Place all the styles related to the Arts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.topnav{
+  height: 3em;
+}
+
+.footer a{
+  text-decoration: underline;
+}
+
+.quotelist li{
+  margin-top: 2.5%;
+}
+
+.invisible{
+  opacity: 0;
+}
+
+.two-section h1{
+  font-size: 1.3em;
+  line-height: 1.4em;
+  font-weight: bold;
+}
+
+.footer .white, .footer a{
+  color: #e4e4e4 !important;
+}
+
+.footer{
+  /* Rectangle 1: */
+background-image: -o-linear-gradient(-89deg, #7F174E 0%, #4E092E 39%);
+background-image: -moz-linear-gradient(-89deg, #7F174E 0%, #4E092E 39%);
+background-image: -ms-linear-gradient(-89deg, #7F174E 0%, #4E092E 39%);
+background-image: linear-gradient(-179deg, #7F174E 0%, #4E092E 39%);
+}
+
+.footer p, .footer a, .footer li{
+  font-size: .9em;
+}
+
+.quotelist{
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+
+p.attri{
+ color:#D0D2D3 !important;
+}
+
+.half-img{
+  max-width: 150px;
+}
+
+.unline{
+   text-decoration: underline;
+}
+
+.call-to-action{
+  position: fixed;
+  top: 5em;
+  right: 1em;
+}
+
+.margin-top-quarter{
+  margin-top: 2.5%;
+}
+
+.white li{
+  color: white;
+}
+
+.inverse-color .vert-line{ border-color: #D0D2D3;}
+.inverse-color h1, .inverse-color .white, .inverse-color .white a{ color: #D0D2D3;}
+.inverse-color{
+  background: hsl(30, 80%, 40%);;
+}
+
+.margin-bottom-half{
+  margin-bottom: 5%;
+
+}
+.margin-top-half{
+  margin-top: 5%;
+}
+
+.sugerpoint li{
+  margin-bottom: 1em;
+}
+
+.sugerpoint li:before{
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background: #eee;
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: -.5em;
+}
+
+p, li{
+  font-weight: 200 !important;
+  color: #0F1D26;
+}
+
+.vert-line{
+  height: 60px;
+  border-right: 3px solid black;
+}
+
+body h1{
+  font-size: 2em;
+  line-height: 1.25em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hero{
+  margin-bottom:20%;
+}
+
+.image-background{
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.image-background.homeroom{
+  background-position: top;
+  background-image: url('/img/pax-homeroom.jpg');
+}
+
+.hero h2{
+  width: 75%;
+  margin: 0.75em auto 0 auto;
+  font-size: 1.1em;
+  font-weight: 200;
+}
+.upcase{
+  text-transform: uppercase;
+}
+
+.margin-top{
+  margin-top: 15%;
+}
+
+.menu{ margin: 0em 1em !important; }
+.menu a{ color: #aaa; font-size: 1.1em; padding: 1em .3em;}
+
+.fr{ float: right;}
+.fl{ float: left;}
+.text-right{ text-align: right;}
+.text-center{ text-align: center;}
+.text-left{ text-align: left;}
