@@ -54,10 +54,15 @@ p.attri{
    text-decoration: underline;
 }
 
+a.button{
+  background: #d55b3a;
+}
+
 .call-to-action{
   position: fixed;
   top: 5em;
   right: 1em;
+  z-index: 1000;
 }
 
 .margin-top-quarter{
@@ -71,7 +76,7 @@ p.attri{
 .inverse-color .vert-line{ border-color: #D0D2D3;}
 .inverse-color h1, .inverse-color .white, .inverse-color .white a{ color: #D0D2D3;}
 .inverse-color{
-  background: hsl(30, 80%, 40%);;
+  background: #013b6c;
 }
 
 .margin-bottom-half{
@@ -122,11 +127,12 @@ body h1{
   height: 100%;
   background-position: center;
   background-size: cover;
+  min-height: 600px;
 }
 
 .image-background.homeroom{
   background-position: top;
-  background-image: url('/img/pax-homeroom.jpg');
+  background-image: url(<%= asset_path('iphone-mask.png') %>);
 }
 
 .hero h2{
@@ -139,6 +145,9 @@ body h1{
   text-transform: uppercase;
 }
 
+.padding-top{
+  padding-top: 15%;
+}
 .margin-top{
   margin-top: 15%;
 }
