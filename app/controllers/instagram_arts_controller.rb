@@ -74,7 +74,7 @@ class InstagramArtsController < ApplicationController
       distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates)
       item = {
         type: "Feature",
-        distance: distance_apart.round(2),
+        distance: "#{distance_apart.round(2)}",
         discovered: instagram_art.created_at.iso8601,
         geometry: {
           type: "Point",
