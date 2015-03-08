@@ -11,7 +11,7 @@
   "page_total": <%= @instagram_arts.total_pages %>,
   "result": {
     "next" : "<%= @search_url.html_safe %>",
-    "count": <%= @result_count %>,
+    "count": "<%= @result_count %>",
     "low": <%= page_range_low %>,
     "high": <%= page_range_low + 50 %>
   },
