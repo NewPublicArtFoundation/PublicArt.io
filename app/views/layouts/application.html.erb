@@ -49,6 +49,9 @@
   </div>
   <% end %>
 
+  <% if !content_for?(:is_ios) %>
+    <%= render 'olark' %>
+  <% end %>
 </div>
 <%= render 'layouts/google_analytics' %>
 </body>
