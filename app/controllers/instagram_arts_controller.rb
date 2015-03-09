@@ -9,7 +9,13 @@ class InstagramArtsController < ApplicationController
 
 
   def most_recent
-    @graffitis = InstagramArt.page(params[:id]).per(30)
+    graffitis = InstagramArt.page(params[:id]).per(30)
+    blocks = []
+    graffitis.each do |graffiti|
+      blocks << graffiti_block_list_item graffiti.image_url
+    end
+    @fragment = blocks.join('')
+    return @fragment
   end
 
   def redirect_to_index
