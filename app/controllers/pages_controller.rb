@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home_web
+    @graffitis = InstagramArt.page(1).per(30)
   end
 
   def explain
