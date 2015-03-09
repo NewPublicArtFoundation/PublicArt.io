@@ -15,3 +15,13 @@
 //= require foundation_and_overrides
 
 */
+
+body:not(.about){
+  .topnav{
+    float: none;
+    position: relative;
+    .menu{
+      float: right;
+    }
+  }
+}
