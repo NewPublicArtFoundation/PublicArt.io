@@ -13,12 +13,52 @@
       console.log('Is currently processing');
     }
   });
+
+  $(window).on('scroll', function(){
+    scrollTop = updateScrollTop();
+    recheckDocumentHeight();
+    isScrollLoadMore(scrollTop);
+  });
+
   var nextToLoad = 2;
   var isProcessing = false;
+  var isScrollTriggered = false;
+  var documentHeight = $(document).height();
+  var windowHeight = $(window).height();
+  var maxVerticalScroll = documentHeight - windowHeight;
+  var scrollTop = $(window).scrollTop();
+
+  var recheckDocumentHeight = function(){
+    documentHeight = $(document).height();
+    windowHeight = $(window).height();
+    maxVerticalScroll = documentHeight - windowHeight;
+  }
+
+  var updateScrollTop = function(){
+    scrollTop = $(window).scrollTop();
+    return scrollTop;
+  }
+
+  var isScrollLoadMore = function(scrollTop){
+    if(maxVerticalScroll == scrollTop){
+        if(isScrollTriggered == false){
+          isScrollTriggered = true;
+          console.log('isScrollTriggered: true');
+          checkLoadMore();
+          console.log('Is scrolled to load more');
+          setTimeout(function(){
+            isScrollTriggered = false;
+            console.log('isScrollTriggered: false');
+          }, 750);
+        }
+    }
+  }
+
   var startProcessing = function(){
     isProcessing = true;
     $('.load-more-status').html('Loading...');
   }
+
   var endProcessing = function(){
     $('.load-more-status').html('Completed');
     setTimeout(function(){
@@ -26,6 +66,7 @@
       $('.load-more-status').html('Load more');
     }, 500);
   }
+
   var checkLoadMore = function(){
     startProcessing();
     $.ajax({
