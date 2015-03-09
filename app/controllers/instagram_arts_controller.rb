@@ -12,10 +12,15 @@ class InstagramArtsController < ApplicationController
     graffitis = InstagramArt.page(params[:id]).per(30)
     blocks = []
     graffitis.each do |graffiti|
-      blocks << graffiti_block_list_item graffiti.image_url
+      html = '<li class="text-center"><img src="' + graffiti.image_url + '"></li>'
+      blocks << html
     end
     @fragment = blocks.join('')
-    return @fragment
+    respond_to do |format|
+        format.html {
+          render plain: @fragment.html_safe
+        }
+      end
   end
 
   def redirect_to_index
