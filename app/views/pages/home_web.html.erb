@@ -7,16 +7,28 @@
   $('.load-more-status').on('click', function(e){
     e.preventDefault();
     console.log('Clicked');
-    checkLoadMore();
+    if(isProcessing == false){
+      checkLoadMore();
+    } else {
+      console.log('Is currently processing');
+    }
   });
   var nextToLoad = 2;
+  var isProcessing = false;
+  var startProcessing = function(){
+    isProcessing = true;
+  }
+  var endProcessing = function(){
+    isProcessing = false;
+  }
   var checkLoadMore = function(){
+    startProcessing();
     $.ajax({
         url: "http://localhost:8080/most_recent/" + nextToLoad,
         type: "GET",
         success: function(data){
+          endProcessing();
           nextToLoad = nextToLoad + 1;
-          console.log(data);
           $('.most_recent_content').append(data);
         }
     });
