@@ -17,9 +17,14 @@
   var isProcessing = false;
   var startProcessing = function(){
     isProcessing = true;
+    $('.load-more-status').html('Loading...');
   }
   var endProcessing = function(){
-    isProcessing = false;
+    $('.load-more-status').html('Completed');
+    setTimeout(function(){
+      isProcessing = false;
+      $('.load-more-status').html('Load more');
+    }, 500);
   }
   var checkLoadMore = function(){
     startProcessing();
