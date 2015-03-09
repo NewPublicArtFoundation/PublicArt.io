@@ -7,6 +7,11 @@ class InstagramArtsController < ApplicationController
     @instagram_arts = InstagramArt.page params[:page]
   end
 
+
+  def most_recent
+    @graffitis = InstagramArt.page(params[:id]).per(30)
+  end
+
   def redirect_to_index
     redirect_to find_url
   end

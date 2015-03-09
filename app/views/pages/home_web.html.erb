@@ -2,3 +2,21 @@
 <div class="row text-center">
   <a href="#" class="button load-more-status">Load More</a>
 </div>
+
+<script>
+  $('.load-more-status').on('click', function(e){
+    e.preventDefault();
+    console.log('This is working');
+  });
+  var nextToLoad = 2;
+  var checkLoadMore = function(){
+    $.ajax({
+        url: "http://localhost:8080/most_recent/" + nextToLoad,
+        type: "GET",
+        success: function(data){
+          console.log('This worked');
+          console.log(data);
+        }
+    });
+  }
+</script>

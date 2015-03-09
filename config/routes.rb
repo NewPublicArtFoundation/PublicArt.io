@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'integration/flickr'
   get 'status/rate' => 'graphs#rate_of_new'
 
+  # Image Loading
+  get 'most_recent/:id' =>  'instagram_arts#most_recent'
+
   # Static Pages
   get 'partnerships' =>     'pages#partnerships'
   get 'thanks' =>           'pages#thankyou'
