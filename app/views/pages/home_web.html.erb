@@ -70,7 +70,7 @@
   var checkLoadMore = function(){
     startProcessing();
     $.ajax({
-        url: "http://localhost:8080/most_recent/" + nextToLoad,
+        url: "http://www.publicart.io/most_recent/" + nextToLoad,
         type: "GET",
         success: function(data){
           endProcessing();
