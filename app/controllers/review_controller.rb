@@ -35,6 +35,6 @@ class ReviewController < ApplicationController
   end
 
   def flagged
-
+    id_array = query_current_flagged
   end
 end
