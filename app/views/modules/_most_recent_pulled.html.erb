@@ -3,7 +3,7 @@
   <div class="large-12 medium-12 small-12 column large-centered">
     <ul class="most_recent_content large-block-grid-5 medium-block-grid-4 small-block-grid-2">
       <% @graffitis.each do |graffiti| %>
-        <%= graffiti_block_list_item graffiti.image_url %>
+        <%= graffiti_block_list_item graffiti.id %>
       <% end %>
     </ul>
   </div>
