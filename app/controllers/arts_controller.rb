@@ -4,7 +4,7 @@ class ArtsController < ApplicationController
     arts = InstagramArt.where(:uid => uid)
     art = arts.first
     @graffiti = art
-     geojson = {
+    geojson = {
       :type => "Feature",
       :discovered => art.created_at.iso8601,
       :geometry => {
@@ -13,7 +13,7 @@ class ArtsController < ApplicationController
       },
       :properties => {
         :title => art.image_url,
-        :description => art.description
+        :description => art.tags
       }
     }
     respond_to do |format|
