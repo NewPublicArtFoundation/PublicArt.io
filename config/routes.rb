@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'geojson/total' => 'arts#geojson_total'
   get 'geojson/:id' => 'arts#geojson'
 
+
   # iOS Views
   resources :instagram_arts, only: [:show]
   get 'slide' => 'instagram_arts#iosview'
