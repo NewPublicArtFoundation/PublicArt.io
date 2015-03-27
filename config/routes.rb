@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'review/flagged'
+
   # Authorization
   resources :accesskeys
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
