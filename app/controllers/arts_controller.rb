@@ -22,6 +22,7 @@ class ArtsController < ApplicationController
           }
         }
         render json: geojson, :content_type => 'application/json'
+      }
     end
   end
 
