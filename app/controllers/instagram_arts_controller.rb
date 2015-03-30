@@ -49,7 +49,7 @@ class InstagramArtsController < ApplicationController
           render :indexlocation
         }
         format.json {
-          data = @instagram_arts
+          data = index_json
           render json: data,
                  :content_type => 'application/json'
         }
