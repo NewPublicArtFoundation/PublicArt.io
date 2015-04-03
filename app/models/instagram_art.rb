@@ -14,6 +14,17 @@ class InstagramArt < ActiveRecord::Base
     end
   end
 
+  def self.remove_bad_url
+    InstagramArt.all.find_in_batches do |group|
+      # sleep(50) # Make sure it doesn't get too crowded in there!
+      group.each do |person|
+        id = person.id
+        puts "Run at id: " + id.to_s
+        RemoveUrlWorker.perform_async(id)
+      end
+    end
+  end
+
   def self.check_id_url(id)
     puts 'Completing ' + id.to_s
     i = InstagramArt.find(id)
