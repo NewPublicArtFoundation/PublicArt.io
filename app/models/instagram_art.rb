@@ -14,6 +14,21 @@ class InstagramArt < ActiveRecord::Base
     end
   end
 
+  def self.check_id_url(id)
+    puts 'Completing ' + id.to_s
+    i = InstagramArt.find(id)
+    uri = URI(i.image_url)
+    request = Net::HTTP.new uri.host
+    response = request.request_head uri.path
+    if response.code.to_i == 404
+      puts 'Was error'
+      i.destroy
+    else
+      puts 'Working'
+    end
+  end
+
+
   protected
     def set_uid
       # This only works before_create obviously, otherwise it would
