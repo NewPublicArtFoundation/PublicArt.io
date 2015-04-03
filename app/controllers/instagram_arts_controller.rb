@@ -37,7 +37,11 @@ class InstagramArtsController < ApplicationController
   def indexlocation
     if params[:search].present?
       next_page = 1
-      @distance_from = 1
+      if params[:distance].present?
+        @distance_from = params[:distanceFrom]
+      else
+        @distance_from = 5
+      end
       if params[:page].present?
         next_page = params[:page].to_i + 1
       end
