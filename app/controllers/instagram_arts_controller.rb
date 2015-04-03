@@ -46,8 +46,14 @@ class InstagramArtsController < ApplicationController
         next_page = params[:page].to_i + 1
       end
       @search_url = 'http://www.graffpass.com/find.json/?search=' + params[:search] + "&page=" + next_page.to_s
-      @instagram_arts = InstagramArt.near(params[:search], @distance_from).where(flagged: nil).page params[:page]
-      @result_count = InstagramArt.near(params[:search], @distance_from).where(flagged: nil).count(:all)
+
+      if params[:orderby].present? && params[:orderby] == 'created_at'
+        @instagram_arts = InstagramArt.order('created_at DESC').near(params[:search], @distance_from).where(flagged: nil).page params[:page]
+        @result_count = InstagramArt.order('created_at DESC').near(params[:search], @distance_from).where(flagged: nil).count(:all)
+      else
+        @instagram_arts = InstagramArt.near(params[:search], @distance_from).where(flagged: nil).page params[:page]
+        @result_count = InstagramArt.near(params[:search], @distance_from).where(flagged: nil).count(:all)
+      end
       @result_coordinates = Geocoder.coordinates(params[:search])
       respond_to do |format|
         format.html {
