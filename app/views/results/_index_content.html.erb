@@ -29,6 +29,11 @@
   </div>
 
   <% @instagram_arts.each do |instagram_art| %>
+    <% if instagram_art.geocoded? %>
+      <% instagram_art.nearbys(30)                      # other objects within 30 miles %>
+      <% instagram_art.distance_from([40.714,-100.234]) # distance from arbitrary point to object %>
+      <% instagram_art.bearing_to("Paris, France")      # direction from object to arbitrary point %>
+    <% end %>
     <% art_coordinates = [instagram_art.latitude, instagram_art.longitude] %>
     <% distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates) %>
     <div class="row" >

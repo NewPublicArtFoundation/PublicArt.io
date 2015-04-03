@@ -38,7 +38,7 @@ class InstagramArtsController < ApplicationController
     if params[:search].present?
       next_page = 1
       if params[:distance].present?
-        @distance_from = params[:distanceFrom]
+        @distance_from = params[:distance]
       else
         @distance_from = 5
       end
