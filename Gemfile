@@ -8,6 +8,7 @@ gem 'spring',        group: :development
 gem 'unicorn'
 gem 'rack-timeout'
 gem 'sidekiq'
+gem 'pg'
 
 # Frontend
 gem 'foundation-rails'
@@ -51,12 +52,10 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'pg'
   gem 'spork-rails', '4.0.0'
   gem 'childprocess', '0.3.6'
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end

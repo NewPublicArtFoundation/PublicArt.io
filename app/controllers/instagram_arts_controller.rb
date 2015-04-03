@@ -37,12 +37,13 @@ class InstagramArtsController < ApplicationController
   def indexlocation
     if params[:search].present?
       next_page = 1
+      @distance_from = 1
       if params[:page].present?
         next_page = params[:page].to_i + 1
       end
       @search_url = 'http://www.graffpass.com/find.json/?search=' + params[:search] + "&page=" + next_page.to_s
-      @instagram_arts = InstagramArt.near(params[:search], 10).where(flagged: nil).page params[:page]
-      @result_count = InstagramArt.near(params[:search], 10).where(flagged: nil).count(:all)
+      @instagram_arts = InstagramArt.near(params[:search], @distance_from).where(flagged: nil).page params[:page]
+      @result_count = InstagramArt.near(params[:search], @distance_from).where(flagged: nil).count(:all)
       @result_coordinates = Geocoder.coordinates(params[:search])
       respond_to do |format|
         format.html {
