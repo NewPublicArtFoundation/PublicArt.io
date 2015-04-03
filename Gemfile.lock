@@ -42,6 +42,7 @@ GEM
       railties (> 3.1)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    chronic (0.10.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -89,6 +90,7 @@ GEM
     hike (1.2.3)
     hitimes (1.2.2)
     i18n (0.7.0)
+    ice_cube (0.11.1)
     instagram (1.1.4)
       faraday (>= 0.7, < 0.10)
       faraday_middleware (>= 0.8, < 0.10)
@@ -218,6 +220,13 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
+    sidetiq (0.6.3)
+      celluloid (>= 0.14.1)
+      ice_cube (= 0.11.1)
+      sidekiq (>= 3.0.0)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     slop (3.6.0)
     spork (1.0.0rc4)
     spork-rails (4.0.0)
@@ -243,6 +252,10 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.5.3)
       coffee-rails
+    twilio-ruby (3.15.1)
+      builder (>= 2.1.2)
+      jwt (~> 1.0)
+      multi_json (>= 1.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -254,6 +267,8 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -263,6 +278,7 @@ DEPENDENCIES
   binding_of_caller
   chart-js-rails
   childprocess (= 0.3.6)
+  chronic
   coffee-rails (~> 4.0.0)
   devise
   devise_invitable
@@ -285,14 +301,17 @@ DEPENDENCIES
   rack-timeout
   rails (= 4.1.2)
   rails_12factor (= 0.0.2)
-  redis
   rollbar (~> 1.3.1)
   rspec-rails
   sass-rails
   sdoc (~> 0.4.0)
   sidekiq
+  sidetiq
+  simple_form
   spork-rails (= 4.0.0)
   spring
   turbolinks
+  twilio-ruby
   uglifier (>= 1.3.0)
   unicorn
+  whenever

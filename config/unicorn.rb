@@ -1,5 +1,4 @@
-# config/unicorn.rb
-worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
+worker_processes Integer(ENV["WEB_CONCURRENCY"] || 5)
 timeout 15
 preload_app true
 
@@ -9,24 +8,26 @@ before_fork do |server, worker|
     Process.kill 'QUIT', Process.pid
   end
 
-  defined?(ActiveRecord::Base) and
-    ActiveRecord::Base.connection.disconnect!
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+  if defined?(Resque)
+    Resque.redis.quit
+    Rails.logger.info('Disconnected from Redis')
+  end
 end
 
 after_fork do |server, worker|
-
-  Sidekiq.configure_client do |config|
-    config.redis = { :size => 1 }
-  end
-
-  Sidekiq.configure_server do |config|
-    config.redis = { :size => 5 }
-  end
-
   Signal.trap 'TERM' do
     puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to send QUIT'
   end
 
-  defined?(ActiveRecord::Base) and
-    ActiveRecord::Base.establish_connection
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+
+  if defined?(Resque)
+    Resque.redis = ENV['<REDIS_URI>']
+    Rails.logger.info('Connected to Redis')
+  end
+
+  Sidekiq.configure_client do |config|
+    config.redis = { size: 1, namespace: 'sidekiq' }
+  end
 end

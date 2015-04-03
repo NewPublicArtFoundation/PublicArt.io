@@ -7,9 +7,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'spring',        group: :development
 gem 'unicorn'
 gem 'rack-timeout'
-gem 'sidekiq'
 gem 'pg'
-gem 'redis'
+gem 'sidekiq'
+gem 'twilio-ruby'
+gem 'chronic'
+gem 'whenever', :require => false
+gem 'sidetiq'
 
 # Frontend
 gem 'foundation-rails'
