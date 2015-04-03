@@ -2,7 +2,6 @@ class InstagramArt < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
   before_create :set_uid
-  default_scope -> { order(created_at: :desc) }
 
   def self.remove_flagged arr
     arr.each do |a|
