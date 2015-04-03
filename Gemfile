@@ -9,6 +9,7 @@ gem 'unicorn'
 gem 'rack-timeout'
 gem 'pg'
 gem 'sidekiq'
+gem 'simple_form'
 gem 'twilio-ruby'
 gem 'chronic'
 gem 'whenever', :require => false
