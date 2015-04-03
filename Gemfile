@@ -9,6 +9,7 @@ gem 'unicorn'
 gem 'rack-timeout'
 gem 'sidekiq'
 gem 'pg'
+gem 'redis'
 
 # Frontend
 gem 'foundation-rails'
