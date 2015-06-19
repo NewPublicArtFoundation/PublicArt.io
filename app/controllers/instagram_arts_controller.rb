@@ -99,26 +99,10 @@ class InstagramArtsController < ApplicationController
   end
 
   def index_geojson
-    len = @instagram_arts.length
-    if(params.has_key?(:page))
-      page_count = params[:page].to_i
-      page_range_low = 1 + (10 * page_count)
-    else
-      page_count = 1
-      page_range_low = 1
-    end
     items = get_response_geoitems
-    result = {}
-    result[:next] = @search_url.html_safe
-    result[:count] = @result_count
-    result[:low] = page_range_low
-    result[:high] = page_range_low + 50
     response = {
-      search_term: URI.encode(params[:search]),
-      page_number: page_count,
-      page_total: @instagram_arts.total_pages,
-      result: result,
-      data: items
+      type: "FeatureCollection",
+      features: items
     }
     return response
   end
