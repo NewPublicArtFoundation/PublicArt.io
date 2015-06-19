@@ -64,6 +64,11 @@ class InstagramArtsController < ApplicationController
           render json: data,
                  :content_type => 'application/json'
         }
+        format.geojson {
+          data = index_geojson
+          render json: data,
+                 :content_type => 'application/json'
+        }
       end
     end
   end
@@ -91,6 +96,56 @@ class InstagramArtsController < ApplicationController
       data: items
     }
     return response
+  end
+
+  def index_geojson
+    len = @instagram_arts.length
+    if(params.has_key?(:page))
+      page_count = params[:page].to_i
+      page_range_low = 1 + (10 * page_count)
+    else
+      page_count = 1
+      page_range_low = 1
+    end
+    items = get_response_geoitems
+    result = {}
+    result[:next] = @search_url.html_safe
+    result[:count] = @result_count
+    result[:low] = page_range_low
+    result[:high] = page_range_low + 50
+    response = {
+      search_term: URI.encode(params[:search]),
+      page_number: page_count,
+      page_total: @instagram_arts.total_pages,
+      result: result,
+      data: items
+    }
+    return response
+  end
+
+  def get_response_geoitems
+    items = []
+
+    @instagram_arts.each_with_index do |instagram_art, index|
+      art_coordinates = [instagram_art.latitude, instagram_art.longitude]
+      distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates)
+      item = {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [ instagram_art.latitude ,  instagram_art.longitude ]
+        },
+        properties: {
+          title: instagram_art.image_url,
+          description: instagram_art.tags,
+          count:  index ,
+          id: instagram_art.id
+        }
+      }
+      items << item
+    end
+
+    return items
   end
 
   def get_response_items

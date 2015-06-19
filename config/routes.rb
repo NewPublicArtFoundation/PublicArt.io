@@ -32,10 +32,10 @@ Rails.application.routes.draw do
   get   'api/instagram/callback/realtime' =>  'instagram_poll#realtime_callback'
 
   # Web Views
-  get 'v/'    => 'arts#index', :as => :arts_index
-  get 'v/:id' => 'arts#show'
-  get 'geojson/total' => 'arts#geojson_total'
-  get 'geojson/:id' => 'arts#geojson'
+  get 'v/'    =>          'arts#index', :as => :arts_index
+  get 'v/:id' =>          'arts#show'
+  get 'geojson/total' =>  'arts#geojson_total'
+  get 'geojson/:id' =>    'arts#geojson'
 
 
   # iOS Views
