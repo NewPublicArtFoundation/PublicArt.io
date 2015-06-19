@@ -117,7 +117,7 @@ class InstagramArtsController < ApplicationController
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [ instagram_art.latitude ,  instagram_art.longitude ]
+          coordinates: [  instagram_art.longitude, instagram_art.latitude ]
         },
         properties: {
           title: instagram_art.image_url,
