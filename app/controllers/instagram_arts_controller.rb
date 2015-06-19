@@ -64,11 +64,11 @@ class InstagramArtsController < ApplicationController
           render json: data,
                  :content_type => 'application/json'
         }
-        # format.geojson {
-        #   data = index_geojson
-        #   render json: data,
-        #          :content_type => 'application/json'
-        # }
+        format.geojson {
+          data = index_geojson
+          render json: data,
+                 :content_type => 'application/json'
+        }
       end
     end
   end
