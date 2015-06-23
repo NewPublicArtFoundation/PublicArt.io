@@ -15,7 +15,7 @@ class InstagramArt < ActiveRecord::Base
   end
 
   def self.remove_bad_url
-    InstagramArt.all.find_in_batches do |group|
+    InstagramArt.all.find_in_batches(start: 248917) do |group|
       # sleep(50) # Make sure it doesn't get too crowded in there!
       group.each do |person|
         id = person.id
@@ -31,6 +31,17 @@ class InstagramArt < ActiveRecord::Base
     uri = URI(i.image_url)
     request = Net::HTTP.new uri.host
     response = request.request_head uri.path
+    if response.code.to_i == 404
+      puts 'Was error'
+      i.destroy
+    else
+      puts 'Working'
+    end
+  end
+
+  def self.check_id_duplicate_image(id)
+    puts 'Completing ' + id.to_s
+    i = InstagramArt.find(id)
     if response.code.to_i == 404
       puts 'Was error'
       i.destroy
