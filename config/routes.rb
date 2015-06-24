@@ -56,7 +56,6 @@ Rails.application.routes.draw do
     scope module: 'v2' do
       resources :instagram_arts, only: [:show]
       get 'slide' => 'instagram_arts#iosview'
-      get 'find'  => 'instagram_arts#indexlocation'
       get 'instagram_arts/:id/image' => 'instagram_arts#image'
     end
   end
@@ -64,6 +63,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     scope module: :v2, constraints: ApiConstraints.new(version: 2, default: :true) do
       resources :instagram_arts
+      get 'find'  => 'instagram_arts#indexlocation'
     end
   end
 

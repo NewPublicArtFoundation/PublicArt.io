@@ -9,7 +9,6 @@ module Api
         @instagram_arts = InstagramArt.page params[:page]
       end
 
-
       def most_recent
         graffitis = InstagramArt.page(params[:id]).per(30)
         blocks = []
