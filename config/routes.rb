@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+require 'api_constraints'
 
+Rails.application.routes.draw do
 
   get 'review/flagged'
 
@@ -55,9 +56,9 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api do
-    namespace :v1 do
-      # Login/Reg
+  namespace :api, defaults: {format: 'json'} do
+    scope module: :v2, constraints: ApiConstraints.new(version: 2, default: :true) do
+      resources :instagram_arts
     end
   end
 
