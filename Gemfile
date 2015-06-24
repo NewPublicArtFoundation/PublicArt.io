@@ -1,10 +1,10 @@
-ruby '2.0.0'
 source 'https://rubygems.org'
+ruby '2.1.6'
 
 # Backend
-gem 'rails', '4.1.2'
-gem 'jbuilder', '~> 2.0'
-gem 'spring',        group: :development
+gem 'rails'
+gem 'jbuilder'
+# gem 'spring',        group: :development
 gem 'unicorn'
 gem 'rack-timeout'
 gem 'pg'
@@ -20,8 +20,8 @@ gem 'foundation-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'sass-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'chart-js-rails'
 
 # Auth
@@ -38,14 +38,14 @@ gem 'geocoder'
 
 # Analytics
 gem 'newrelic_rpm'
-gem 'rollbar', '~> 1.3.1'
+gem 'rollbar'
 
 # External Services
 gem 'instagram'
 
 # Other
 gem 'kaminari'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'sdoc'
 
 group :development do
   gem 'pry-rails'
@@ -57,10 +57,10 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'spork-rails', '4.0.0'
-  gem 'childprocess', '0.3.6'
+  gem 'spork-rails'
+  gem 'childprocess'
 end
 
 group :production do
-  gem 'rails_12factor', '0.0.2'
+  gem 'rails_12factor'
 end

@@ -38,7 +38,6 @@ Rails.application.routes.draw do
   get 'geojson/total' => 'arts#geojson_total'
   get 'geojson/:id' => 'arts#geojson'
 
-
   # iOS Views
   resources :instagram_arts, only: [:show]
   get 'slide' => 'instagram_arts#iosview'
@@ -48,9 +47,19 @@ Rails.application.routes.draw do
 
   get "*any", via: :all, to: "errors#not_found" #404
 
-  scope :api do
-    # Login/Reg
-    devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
-    match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  namespace :ios do
+    namespace :v1 do
+      resources :instagram_arts, only: [:show]
+      get 'slide' => 'instagram_arts#iosview'
+      get 'find'  => 'instagram_arts#indexlocation'
+      get 'instagram_arts/:id/image' => 'instagram_arts#image'
+      root 'pages#home_web'
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      # Login/Reg
+    end
   end
 end
