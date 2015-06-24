@@ -36,12 +36,12 @@ Rails.application.routes.draw do
   get 'slide' => 'instagram_arts#iosview'
   get 'find'  => 'instagram_arts#indexlocation'
   get 'instagram_arts/:id/image' => 'instagram_arts#image'
-  root 'pages#home_web'
 
 
   scope module: 'web' do
     scope module: 'v1' do
       # Static Pages
+      root 'pages#home_web'
       get 'partnerships' =>     'pages#partnerships'
       get 'thanks' =>           'pages#thankyou'
       get 'explain' =>          'pages#explain'
