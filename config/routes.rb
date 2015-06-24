@@ -39,21 +39,19 @@ Rails.application.routes.draw do
   get 'geojson/:id' => 'arts#geojson'
 
   # iOS Views
-  resources :instagram_arts, only: [:show]
+  # resources :instagram_arts, only: [:show]
   get 'slide' => 'instagram_arts#iosview'
   get 'find'  => 'instagram_arts#indexlocation'
   get 'instagram_arts/:id/image' => 'instagram_arts#image'
   root 'pages#home_web'
 
-  get "*any", via: :all, to: "errors#not_found" #404
 
   namespace :ios do
-    namespace :v1 do
+    scope module: 'v2' do
       resources :instagram_arts, only: [:show]
       get 'slide' => 'instagram_arts#iosview'
       get 'find'  => 'instagram_arts#indexlocation'
       get 'instagram_arts/:id/image' => 'instagram_arts#image'
-      root 'pages#home_web'
     end
   end
 
@@ -62,4 +60,6 @@ Rails.application.routes.draw do
       # Login/Reg
     end
   end
+
+  get "*any", via: :all, to: "errors#not_found" #404
 end

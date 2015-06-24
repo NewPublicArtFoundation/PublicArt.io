@@ -1,0 +1,51 @@
+<h1>Listing instagram_arts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Everything</th>
+      <th>Image url</th>
+      <th>Date found</th>
+      <th>Tags</th>
+      <th>Caption</th>
+      <th>User name</th>
+      <th>User</th>
+      <th>User avatar</th>
+      <th>Location name</th>
+      <th>Location lon</th>
+      <th>Location lat</th>
+      <th>Location</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instagram_arts.each do |instagram_art| %>
+      <tr>
+        <td><%= instagram_art.everything %></td>
+        <td><%= instagram_art.image_url %></td>
+        <td><%= instagram_art.date_found %></td>
+        <td><%= instagram_art.tags %></td>
+        <td><%= instagram_art.caption %></td>
+        <td><%= instagram_art.user_name %></td>
+        <td><%= instagram_art.user_id %></td>
+        <td><%= instagram_art.user_avatar %></td>
+        <td><%= instagram_art.location_name %></td>
+        <td><%= instagram_art.longitude %></td>
+        <td><%= instagram_art.latitude %></td>
+        <td><%= instagram_art.location_id %></td>
+        <td><%= instagram_art.image_id %></td>
+        <td><%= link_to 'Show', instagram_art %></td>
+        <td><%= link_to 'Edit', edit_instagram_art_path(instagram_art) %></td>
+        <td><%= link_to 'Destroy', instagram_art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @instagram_arts %>
+
+<br>
+
+<%= link_to 'New Instagram art', new_instagram_art_path %>
