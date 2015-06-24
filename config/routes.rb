@@ -18,14 +18,6 @@ Rails.application.routes.draw do
   # Image Loading
   get 'most_recent/:id' =>  'instagram_arts#most_recent'
 
-  # Static Pages
-  get 'partnerships' =>     'pages#partnerships'
-  get 'thanks' =>           'pages#thankyou'
-  get 'explain' =>          'pages#explain'
-  get 'about' =>            'pages#about'
-  get 'privacy' =>          'pages#privacy'
-  get 'about.html' =>       'pages#about'
-  get 'privacy.html' =>     'pages#privacy'
 
   # Instagram Connect
   get   'api/instagram/oauth/connect' =>      'instagram_poll#oauth_connect'
@@ -46,6 +38,19 @@ Rails.application.routes.draw do
   get 'instagram_arts/:id/image' => 'instagram_arts#image'
   root 'pages#home_web'
 
+
+  scope module: 'web' do
+    scope module: 'v1' do
+      # Static Pages
+      get 'partnerships' =>     'pages#partnerships'
+      get 'thanks' =>           'pages#thankyou'
+      get 'explain' =>          'pages#explain'
+      get 'about' =>            'pages#about'
+      get 'privacy' =>          'pages#privacy'
+      get 'about.html' =>       'pages#about'
+      get 'privacy.html' =>     'pages#privacy'
+    end
+  end
 
   namespace :ios do
     scope module: 'v2' do
