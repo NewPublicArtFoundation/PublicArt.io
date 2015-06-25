@@ -4,23 +4,18 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     scope module: :v2, constraints: ApiConstraints.new(version: 2, default: :true) do
-      resources :instagram_arts
-      get 'geojson/total'   => 'arts#geojson_total'
-      get 'geojson/:id'     => 'arts#geojson'
-      get 'find'            => 'instagram_arts#indexlocation'
+      get 'geojson/total'             => 'arts#geojson_total'
+      get 'geojson/:id'               => 'arts#geojson'
+      get 'find'                      => 'instagram_arts#indexlocation'
+      get 'instagram_arts/:id/image'  => 'instagram_arts#image'
     end
   end
 
   namespace :ios do
-    scope module: 'v1' do
-      get 'instagram_arts/:id/image' => 'instagram_arts#image'
-    end
-    scope module: :v2, constraints: ApiConstraints.new(version: 2, default: :true) do
+    scope module: :v1 do
       resources :instagram_arts, only: [:show]
       get 'v/'    => 'arts#index', :as => :arts_index
       get 'v/:id' => 'arts#show'
-      get 'slide' => 'instagram_arts#iosview'
-      get 'instagram_arts/:id/image' => 'instagram_arts#image'
     end
   end
 
@@ -64,7 +59,6 @@ Rails.application.routes.draw do
       get   'instagram/callback/realtime' =>  'instagram_poll#realtime_callback'
 
       get 'instagram'
-      get 'instagram'
       get 'flickr'
     end
   end
@@ -73,6 +67,5 @@ Rails.application.routes.draw do
   resources :instagram_arts
   get 'v/'    => 'arts#index', :as => :arts_index
   get 'v/:id' => 'arts#show'
-  get 'instagram_arts/:id/image' => 'instagram_arts#image'
 
 end
