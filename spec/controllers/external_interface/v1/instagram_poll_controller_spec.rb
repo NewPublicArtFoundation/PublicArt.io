@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe InstagramPollController, :type => :controller do
+RSpec.describe ExternalInterface::V1::InstagramPollController, :type => :controller do
 
 end

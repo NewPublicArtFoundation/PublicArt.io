@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe IntegrationController, :type => :controller do
+RSpec.describe ExternalInterface::V1::IntegrationController, :type => :controller do
 
   describe "GET 'instagram'" do
     it "returns http success" do

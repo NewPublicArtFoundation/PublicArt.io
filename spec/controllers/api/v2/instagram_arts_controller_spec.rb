@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe InstagramArtsController, :type => :controller do
+RSpec.describe Api::V2::InstagramArtsController, :type => :controller do
 
 end
