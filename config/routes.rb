@@ -2,15 +2,6 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
 
-  get 'review/flagged'
-
-  # Authorization
-  resources :accesskeys
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
-  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-
-  get 'status/rate' => 'graphs#rate_of_new'
-
   namespace :api, defaults: {format: 'json'} do
     scope module: :v2, constraints: ApiConstraints.new(version: 2, default: :true) do
       resources :instagram_arts
@@ -36,6 +27,12 @@ Rails.application.routes.draw do
   scope module: 'web' do
     scope module: 'v1' do
       root 'pages#home_web'
+
+      resources :accesskeys
+      devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+      match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+      get 'status/rate' => 'graphs#rate_of_new'
 
       # Image Loading
       get 'most_recent/:id' =>  'instagram_arts#most_recent'
