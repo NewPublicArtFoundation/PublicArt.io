@@ -1,3 +1,4 @@
+include IndexLocation
 module Api
   module V2
     class InstagramArtsController < ApplicationController
@@ -25,12 +26,38 @@ module Api
           end
           @result_coordinates = Geocoder.coordinates(params[:search])
           instagram_arts = @instagram_arts
+          the_params = params
+          search_url = @search_url
+
+          if(params.has_key?(:page))
+            page_count = params[:page].to_i
+            page_range_low = 1 + (10 * page_count)
+          else
+            page_count = 1
+            page_range_low = 1
+          end
+
+          len = instagram_arts.length
+          items = IndexLocation.get_response_items instagram_arts
+          result = {}
+          result[:next] = @search_url.html_safe
+          result[:count] = @result_count
+          result[:low] = page_range_low
+          result[:high] = page_range_low + 50
+          response = {
+            search_term: URI.encode(params[:search]),
+            page_number: page_count,
+            page_total: @instagram_arts.total_pages,
+            result: result,
+            data: items
+          }
+
           respond_to do |format|
             format.html {
               render :indexlocation
             }
             format.json {
-              data = InstagramArts.index_json instagram_arts
+              data = response
               render json: data,
                      :content_type => 'application/json'
             }
