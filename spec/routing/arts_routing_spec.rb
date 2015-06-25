@@ -8,7 +8,7 @@ RSpec.describe Api::V2::ArtsController, :type => :routing do
     end
 
     it "routes to #geojson" do
-      expect(:get => "/api/geojson/:id").to route_to("api/v2/arts#geojson", :id => "1", format: 'json')
+      expect(:get => "/api/geojson/1").to route_to("api/v2/arts#geojson", :id => "1", format: 'json')
     end
 
   end
