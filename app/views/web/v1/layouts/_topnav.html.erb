@@ -1,7 +1,7 @@
 
 <div class="topnav fr text-right">
   <ul class="menu inline-list">
-    <%= render 'layouts/nav_links' %>
+    <%= render 'web/v1/layouts/nav_links' %>
     <% if signed_in? %>
       <li class="no-span login">
         <%= link_to edit_user_registration_path, :class=>'no-right-pad' do %>

@@ -3,6 +3,17 @@ module Api
   module V2
     class InstagramArtsController < ApplicationController
 
+      def geojson_single
+        instagram_art = InstagramArt.find(params[:id])
+        respond_to do |format|
+          format.json {
+            data = IndexLocation.get_response_geojson(instagram_art)
+            render json: data,
+                   :content_type => 'application/json'
+          }
+        end
+      end
+
       # GET /find
       def indexlocation
         if params[:search].present?

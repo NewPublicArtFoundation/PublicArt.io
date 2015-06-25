@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     scope module: :v2, constraints: ApiConstraints.new(version: 2, default: :true) do
-      get 'geojson/total'             => 'arts#geojson_total'
-      get 'geojson/:id'               => 'arts#geojson'
+      get 'v/:id'                     => 'instagram_arts#show'
+      get 'v/:id/geojson'             => 'instagram_arts#geojson_single'
+      get 'v/:id/image'               => 'instagram_arts#image'
       get 'find'                      => 'instagram_arts#indexlocation'
-      get 'instagram_arts/:id/image'  => 'instagram_arts#image'
     end
   end
 
@@ -64,8 +64,14 @@ Rails.application.routes.draw do
   end
 
   # Web Views
-  resources :instagram_arts
-  get 'v/'    => 'arts#index', :as => :arts_index
-  get 'v/:id' => 'arts#show'
+  get 'v/:id' =>          'arts#show'
+  get 'geojson/total' =>  'arts#geojson_total'
+  get 'geojson/:id' =>    'arts#geojson'
+
+
+  # iOS Views
+  resources :instagram_arts, only: [:show]
+  get 'find'  => 'instagram_arts#indexlocation'
+  get 'instagram_arts/:id/image' => 'instagram_arts#image'
 
 end
