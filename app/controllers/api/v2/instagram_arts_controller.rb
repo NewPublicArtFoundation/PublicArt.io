@@ -48,17 +48,17 @@ module Api
 
           len = instagram_arts.length
           items = IndexLocation.get_response_items instagram_arts, result_coordinates
-          result = {}
-          result[:next] = search_url.html_safe
-          result[:count] = result_count
-          result[:low] = page_range_low
-          result[:high] = page_range_low + 50
           @response = {
             location: result_coordinates,
             search_term: params[:search],
             page_number: page_count,
             page_total: instagram_arts.total_pages,
-            result: result,
+            result: {
+              rnext: search_url.html_safe
+              rcount: result_count
+              rlow: page_range_low
+              rhigh: page_range_low + 50
+            },
             data: items
           }
 

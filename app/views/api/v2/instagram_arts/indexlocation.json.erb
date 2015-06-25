@@ -4,10 +4,10 @@
   "page_number": <%= @response[:result][:count] %>,
   "page_total": <%= @response[:page_total] %>,
   "result": {
-    "next" : "<%= @response[:result][:next] %>",
-    "count": <%= @response[:result][:count] %>,
-    "low": <%= @response[:result][:low] %>,
-    "high": <%= @response[:result][:high] %>
+    "next" : "<%= @response[:result][:rnext] %>",
+    "count": <%= @response[:result][:rcount] %>,
+    "low": <%= @response[:result][:rlow] %>,
+    "high": <%= @response[:result][:rhigh] %>
   },
   "data": <%= raw(@response[:data].to_json) %>
 }
