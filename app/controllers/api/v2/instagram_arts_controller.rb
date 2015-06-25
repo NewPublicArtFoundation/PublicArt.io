@@ -45,7 +45,7 @@ module Api
           result[:low] = page_range_low
           result[:high] = page_range_low + 50
           response = {
-            search_term: URI.encode(params[:search]),
+            search_term: params[:search],
             page_number: page_count,
             page_total: @instagram_arts.total_pages,
             result: result,
