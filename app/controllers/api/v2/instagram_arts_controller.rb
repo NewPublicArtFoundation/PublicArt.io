@@ -16,8 +16,9 @@ module Api
 
       # GET /find
       def indexlocation
+        base_url = ENV['PUBLICART_BASE_URL']
         if params[:search].present?
-          next_page = 1
+          next_page = 2
           if params[:distance].present?
             distance_from = params[:distance]
           else
@@ -26,7 +27,7 @@ module Api
           if params[:page].present?
             next_page = params[:page].to_i + 1
           end
-          search_url = 'http://www.graffpass.com/api/find.json/?search=' + URI.encode(params[:search]) + "&page=" + next_page.to_s
+          search_url = base_url.to_s + '/api/find.json/?search=' + URI.encode(params[:search]) + "&page=" + next_page.to_s
 
           if params[:orderby].present? && params[:orderby] == 'created_at'
             instagram_arts = InstagramArt.order('created_at DESC').near(params[:search], distance_from).where(flagged: nil).page params[:page]
