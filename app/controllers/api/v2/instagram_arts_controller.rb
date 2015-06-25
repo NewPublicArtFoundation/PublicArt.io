@@ -46,7 +46,7 @@ module Api
           end
 
           len = instagram_arts.length
-          items = IndexLocation.get_response_items instagram_arts
+          items = IndexLocation.get_response_items instagram_arts, result_coordinates
           result = {}
           result[:next] = search_url.html_safe
           result[:count] = result_count

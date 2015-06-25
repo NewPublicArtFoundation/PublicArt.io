@@ -1,12 +1,12 @@
 module IndexLocation
   extend ActiveSupport::Concern
 
-  def get_response_items instagram_arts
+  def get_response_items instagram_arts, result_coordinates
     items = []
 
     instagram_arts.each_with_index do |instagram_art, index|
       art_coordinates = [instagram_art.latitude, instagram_art.longitude]
-      distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates)
+      distance_apart = Geocoder::Calculations.distance_between(art_coordinates, result_coordinates)
       item = {
         type: "Feature",
         distance: "#{distance_apart.round(2)}",
