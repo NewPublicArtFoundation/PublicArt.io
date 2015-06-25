@@ -24,12 +24,13 @@ module Api
             @result_count = InstagramArt.near(params[:search], @distance_from).where(flagged: nil).count(:all)
           end
           @result_coordinates = Geocoder.coordinates(params[:search])
+          instagram_arts = @instagram_arts
           respond_to do |format|
             format.html {
               render :indexlocation
             }
             format.json {
-              data = InstagramArts.index_json @instagram_arts
+              data = InstagramArts.index_json instagram_arts
               render json: data,
                      :content_type => 'application/json'
             }

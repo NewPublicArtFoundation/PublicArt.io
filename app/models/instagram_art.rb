@@ -50,10 +50,10 @@ class InstagramArt < ActiveRecord::Base
     end
   end
 
-  def self.get_response_items @instagram_arts
+  def self.get_response_items instagram_arts
     items = []
 
-    @instagram_arts.each_with_index do |instagram_art, index|
+    instagram_arts.each_with_index do |instagram_art, index|
       art_coordinates = [instagram_art.latitude, instagram_art.longitude]
       distance_apart = Geocoder::Calculations.distance_between(art_coordinates, @result_coordinates)
       item = {
@@ -78,8 +78,8 @@ class InstagramArt < ActiveRecord::Base
   end
 
   # Used by indexlocation
-  def self.index_json @instagram_arts
-    len = @instagram_arts.length
+  def self.index_json instagram_arts
+    len = instagram_arts.length
     if(params.has_key?(:page))
       page_count = params[:page].to_i
       page_range_low = 1 + (10 * page_count)
@@ -87,7 +87,7 @@ class InstagramArt < ActiveRecord::Base
       page_count = 1
       page_range_low = 1
     end
-    items = InstagramArts.get_response_items @instagram_arts
+    items = InstagramArts.get_response_items instagram_arts
     result = {}
     result[:next] = @search_url.html_safe
     result[:count] = @result_count
