@@ -29,7 +29,7 @@ module Api
               render :indexlocation
             }
             format.json {
-              data = index_json
+              data = InstagramArts.index_json @instagram_arts
               render json: data,
                      :content_type => 'application/json'
             }
@@ -41,32 +41,6 @@ module Api
       def image
         @instagram_arts = InstagramArt.find(params[:id])
         render plain: @instagram_arts.image_url
-      end
-
-      # Used by indexlocation
-      def index_json
-        len = @instagram_arts.length
-        if(params.has_key?(:page))
-          page_count = params[:page].to_i
-          page_range_low = 1 + (10 * page_count)
-        else
-          page_count = 1
-          page_range_low = 1
-        end
-        items = get_response_items
-        result = {}
-        result[:next] = @search_url.html_safe
-        result[:count] = @result_count
-        result[:low] = page_range_low
-        result[:high] = page_range_low + 50
-        response = {
-          search_term: URI.encode(params[:search]),
-          page_number: page_count,
-          page_total: @instagram_arts.total_pages,
-          result: result,
-          data: items
-        }
-        return response
       end
 
     end
