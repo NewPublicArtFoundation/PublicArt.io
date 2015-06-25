@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       get 'slide' => 'instagram_arts#iosview'
       get 'find'  => 'instagram_arts#indexlocation'
       get 'instagram_arts/:id/image' => 'instagram_arts#image'
+
       # Static Pages
       get 'partnerships' =>     'pages#partnerships'
       get 'thanks' =>           'pages#thankyou'
@@ -53,8 +54,6 @@ Rails.application.routes.draw do
       get "*any", via: :all, to: "errors#not_found" #404
     end
   end
-
-
 
   namespace :external_interface do
     scope module: 'v1' do
