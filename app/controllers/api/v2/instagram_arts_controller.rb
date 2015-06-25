@@ -54,9 +54,9 @@ module Api
             page_number: page_count,
             page_total: instagram_arts.total_pages,
             result: {
-              rnext: search_url.html_safe
-              rcount: result_count
-              rlow: page_range_low
+              rnext: search_url.html_safe,
+              rcount: result_count,
+              rlow: page_range_low,
               rhigh: page_range_low + 50
             },
             data: items
