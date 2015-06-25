@@ -6,12 +6,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <% end %>
 
-  <%= render 'layouts/meta_data' %>
+  <%= render 'web/v1/layouts/meta_data' %>
 </head>
 <body class="<%= content_for?(:body_class) ? yield(:body_class) : "" %>">
 
 <% if !content_for?(:is_ios) %>
-  <%= render 'layouts/topnav' %>
+  <%= render 'web/v1/layouts/topnav' %>
 <% end %>
 
 <div class="body-to">
@@ -50,9 +50,9 @@
   <% end %>
 
   <% if !content_for?(:is_ios) %>
-    <%= render 'layouts/olark' %>
+    <%= render 'web/v1/layouts/olark' %>
   <% end %>
 </div>
-<%= render 'layouts/google_analytics' %>
+<%= render 'web/v1/layouts/google_analytics' %>
 </body>
 </html>

@@ -1,5 +1,5 @@
-module Web
-  module V1
+module Api
+  module V2
     class ArtsController < ApplicationController
       def geojson_total
         @count = Geodata.all.count
