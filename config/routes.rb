@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :instagram_arts
       get 'geojson/total'   => 'arts#geojson_total'
       get 'geojson/:id'     => 'arts#geojson'
-      get 'find'              => 'instagram_arts#indexlocation'
+      get 'find'            => 'instagram_arts#indexlocation'
     end
   end
 
