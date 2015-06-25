@@ -79,7 +79,7 @@ module Api
       # GET /instagram_arts/:id/image
       def image
         @instagram_arts = InstagramArt.find(params[:id])
-        render plain: @instagram_arts.image_url
+        render json: { id: params[:id], image: @instagram_arts.image_url }
       end
 
     end
