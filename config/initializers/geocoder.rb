@@ -1,4 +1,4 @@
-Geocoder.configure
+Geocoder.configure(
   # geocoding options
   # :timeout      => 5,           # geocoding service timeout (secs)
   # :lookup       => :dstk,     # name of geocoding service (symbol)
@@ -23,5 +23,4 @@ Geocoder.configure
   lookup: :bing,
   key: ENV['BING_GEOCODE_ID'],
   cache: Rails.cache
-
-}
+)
