@@ -8,3 +8,86 @@
     </ul>
   </div>
 </div>
+
+<div class="row text-center load-more-wrapper">
+  <a href="#" class="button load-more-status">Load More</a>
+</div>
+
+<script>
+  $('.load-more-status').on('click', function(e){
+    e.preventDefault();
+    console.log('Clicked');
+    if(isProcessing == false){
+      checkLoadMore();
+    } else {
+      console.log('Is currently processing');
+    }
+  });
+
+  $(window).on('scroll', function(){
+    scrollTop = updateScrollTop();
+    recheckDocumentHeight();
+    isScrollLoadMore(scrollTop);
+  });
+
+  var nextToLoad = 2;
+  var isProcessing = false;
+  var isScrollTriggered = false;
+  var documentHeight = $(document).height();
+  var windowHeight = $(window).height();
+  var maxVerticalScroll = documentHeight - windowHeight;
+  var scrollTop = $(window).scrollTop();
+
+  var recheckDocumentHeight = function(){
+    documentHeight = $(document).height();
+    windowHeight = $(window).height();
+    maxVerticalScroll = documentHeight - windowHeight;
+  }
+
+  var updateScrollTop = function(){
+    scrollTop = $(window).scrollTop();
+    return scrollTop;
+  }
+
+  var isScrollLoadMore = function(scrollTop){
+    if(maxVerticalScroll == scrollTop){
+        if(isScrollTriggered == false){
+          isScrollTriggered = true;
+          console.log('isScrollTriggered: true');
+          checkLoadMore();
+          console.log('Is scrolled to load more');
+          setTimeout(function(){
+            isScrollTriggered = false;
+            console.log('isScrollTriggered: false');
+          }, 750);
+        }
+    }
+  }
+
+  var startProcessing = function(){
+    isProcessing = true;
+    $('.load-more-status').html('Loading...');
+  }
+
+  var endProcessing = function(){
+    $('.load-more-status').html('Completed');
+    setTimeout(function(){
+      isProcessing = false;
+      $('.load-more-status').html('Load more');
+    }, 500);
+  }
+
+  var checkLoadMore = function(){
+    startProcessing();
+    $.ajax({
+        url: "<%= ENV['PUBLICART_BASE_URL'] %>/most_recent/" + nextToLoad,
+        type: "GET",
+        success: function(data){
+          endProcessing();
+          nextToLoad = nextToLoad + 1;
+          $('.most_recent_content').append(data);
+        }
+    });
+  }
+</script>
+
