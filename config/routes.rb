@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   get 'slide' => 'instagram_arts#iosview'
   get 'find'  => 'instagram_arts#indexlocation'
   get 'instagram_arts/:id/image' => 'instagram_arts#image'
-  root 'pages#home_web'
+  root 'pages#about'
 
   get "*any", via: :all, to: "errors#not_found" #404
 end
